@@ -22,17 +22,34 @@ const mapDispatchToProps = (dispatch) =>{
 class Projects extends Component {
     constructor(){
         super();
+        this.state = {
+            posts: []
+        }
     }
 
     componentDidMount(){
-        let fetchUrl = this.props.match.params.title.split("_").join(" ");
-        this.props.fetchCategories();
-        this.props.fetchProducts(fetchUrl);
+        if(this.state.posts.length === 0){
+            fetch(`https://public-api.wordpress.com/rest/v1.1/sites/endzibackend.wordpress.com/posts/?category=${this.props.match.params.title}&number=100`).then((response)=>{
+                return response.json()
+            }).then((parsedData)=>{
+                this.setState({
+                    posts: parsedData.posts
+                });
+            }).catch((e)=>{
+                console.log(e);
+            });
+        }
     }
     render(){
+        let projectsToRender;
+        if(this.state.posts.length !== 0){
+            projectsToRender = this.state.posts.map((product)=>{
+                return <img key={product.id} src={product.featured_image} alt={product.title} />
+            });
+        }
         return(
             <div>
-                {this.props.match.url}
+                {projectsToRender}
             </div>
         );
     }

@@ -13,15 +13,18 @@ export const startPageTransition = (start) => {
 }
 
 export const fetchCategories = () =>{
-    return {
-        type: "FETCH_CATEGORIES",
+    return (dispatch)=>{
+        dispatch({
+            type: "FETCH_CATEGORIES_START"
+        })
     }
 }
 
 
 export const fetchProducts = (url) =>{
-    return {
-        type: "FETCH_PRODUCTS",
-        payload: url
+    return (dispatch)=>{
+        dispatch({
+            type: "FETCH_CATEGORIES_START"
+        });
     }
 }

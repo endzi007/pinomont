@@ -2,7 +2,7 @@ import store from '../store/store';
 
 //
 export const fetchApi = (store) => (next) => (action)=>{
-    if(action.type === "FETCH_CATEGORIES"){
+    if(action.type === "FETCH_CATEGORIES_START"){
         let categories = store.getState().categories;
         if(categories.length === 0){
             fetch("https://public-api.wordpress.com/rest/v1.1/sites/endzibackend.wordpress.com/posts/?category=kategorije&number=100").then((response)=>{
@@ -50,10 +50,6 @@ export const fetchProducts = (store) => (next) => (action) => {
             }
         });
 
-        if(products[counter].products.length === 0){
-            console.log(`fetch api: https://public-api.wordpress.com/rest/v1.1/sites/endzibackend.wordpress.com/posts/?category=${action.payload}&number=100`)
-        }
-       
         next(action);
     }
     next(action);
