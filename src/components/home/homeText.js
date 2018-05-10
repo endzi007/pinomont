@@ -6,7 +6,7 @@ import Typist from 'react-typist';
 export default class HomeText extends Component{
     render(){
         return(
-            <div id="headerText" className={`pageSection col-xs-12 ${this.props.className}`} >
+            <div id="headerText" className={`pageSection ${this.props.className}`} >
 
             </div>
         );
