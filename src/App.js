@@ -2,6 +2,8 @@ import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import animateComponent from './components/HOC/animateComponent';
+import { connect } from 'react-redux';
+import * as actions from './actions/projectActions';
 
 import Navigation from './components/navigation/navigationContainer';
 import Footer from './components/footer';
@@ -13,6 +15,7 @@ import Contact from './components/contact/contact';
 import Projects from './components//project/categories';
 import HomeText from './components//home/homeText';
 import Categories from './components//project/categories';
+import { bindActionCreators } from '../../../../AppData/Local/Microsoft/TypeScript/2.8/node_modules/redux';
 
 
 
@@ -25,10 +28,8 @@ const generalStyles = {
 };
 
 class App extends React.Component {
-  componentWillMount(){
-    generalStyles.header = 40;
-    generalStyles.footer = 20;
-    generalStyles.content = window.innerHeight-40-20;
+  componentDidMount(){
+    this.props.fetchCategories();
   }
   render() {
     const homeTextAnim = animateComponent(HomeText);
@@ -38,6 +39,7 @@ class App extends React.Component {
       <Router>
         <div>
         <Navigation style={generalStyles.header} />
+        <TransitionOverlay show={this.props.appConfig.pageTransition} />
         <Route path="/" render={({ location }) =>{
           return(
             <div>
@@ -58,4 +60,13 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps(store){
+  return {
+    appConfig: store.appConfig
+  }
+}
+
+function mapDispatchToProps (dispatch){
+  return bindActionCreators(actions, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

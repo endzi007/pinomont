@@ -44,7 +44,7 @@ class Projects extends Component {
         let projectsToRender;
         if(this.state.posts.length !== 0){
             projectsToRender = this.state.posts.map((product)=>{
-                return <img key={product.id} src={product.featured_image} alt={product.title} />
+                return <img key={product.ID} src={product.featured_image} alt={product.title} />
             });
         }
         return(

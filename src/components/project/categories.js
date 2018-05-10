@@ -31,9 +31,6 @@ class Categories extends Component {
         super();
     }
 
-    componentDidMount(){
-        this.props.fetchCategories();
-    }
     render(){
         var projectsToRender = this.props.categories.map((project, i)=>{
                 return <Category key={"project"+i} className={`${defaultStyle} projectItem`} {...project} />
