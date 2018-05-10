@@ -45,10 +45,15 @@ class Projects extends Component {
             }).then((parsedData)=>{
                 this.setState({
                     posts: parsedData.posts
+                }, ()=>{
+                    this.props.startPageTransition(false);
                 });
+
             }).catch((e)=>{
                 console.log(e);
             });
+        } else {
+            this.props.startPageTransition(false);
         }
     }
     render(){

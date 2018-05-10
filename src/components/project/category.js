@@ -97,7 +97,6 @@ class Category extends Component  {
                 this.props.startPageTransition(true);
         
                 setTimeout(()=>{
-                    this.props.startPageTransition(false);
                     this.props.history.push(path)
                 }, this.props.appConfig.transitionDuration);
             }}
