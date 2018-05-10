@@ -45,10 +45,12 @@ const TransitionOverlay = (props)=>{
         backgroundColor: "black",
         "-webkit-animation": `${props.show === true ? animationIn: animationOut} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
         "animation": `${props.show === true ? animationIn: animationOut} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+        display: "flex",
+        verticalAlign: "center"
     });
     return(
         <div className={defaultStyle}>
-
+            <p>Pinomont</p>
         </div>
     );
 }
