@@ -5,6 +5,8 @@ import { style, keyframes } from 'typestyle';
 import LinkTimeout from '../helperComponents/linkTimeout';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions/projectActions';
 
 
 const animationIn = keyframes({
@@ -88,7 +90,16 @@ class Category extends Component  {
                 })
             }}
             onClick={()=>{
-                this.props.history.push(`${this.props.match.url}/${this.props.title.split(" ").join("_")}`);
+                let path = `${this.props.match.url}/${this.props.title.split(" ").join("_")}`;
+                if (this.props.history.location.pathname === path){
+                    return;
+                }
+                this.props.startPageTransition(true);
+        
+                setTimeout(()=>{
+                    this.props.startPageTransition(false);
+                    this.props.history.push(path)
+                }, this.props.appConfig.transitionDuration);
             }}
             >
                 <img src={this.props.featured_image}className={this.showDiv()}></img>
@@ -106,5 +117,8 @@ function mapStateToProps(store){
     }
 }
 
+function mapDispatchToProps (dispatch){
+    return bindActionCreators(actions, dispatch);
+}
 
-export default connect(mapStateToProps)(withRouter(Category));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Category));

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import animateComponent from './components/HOC/animateComponent';
 import { connect } from 'react-redux';
@@ -12,10 +12,10 @@ import ProductContainer from './components/products/productContainer';
 
 /*-----pages------*/
 import Contact from './components/contact/contact';
-import Projects from './components//project/categories';
-import HomeText from './components//home/homeText';
-import Categories from './components//project/categories';
-import { bindActionCreators } from '../../../../AppData/Local/Microsoft/TypeScript/2.8/node_modules/redux';
+import Projects from './components/project/categories';
+import HomeText from './components/home/homeText';
+import Categories from './components/project/categories';
+import { bindActionCreators } from 'redux';
 
 
 

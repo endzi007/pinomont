@@ -18,7 +18,18 @@ const mapDispatchToProps = (dispatch) =>{
     return bindActionCreators(actions, dispatch)
 }
 
-
+const defaultStyle = style({
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))",
+    gridGap: "20px",
+    $nest: {
+        "img": {
+            border: "2px dotted black",
+            width: "100%"
+          }
+    }
+    
+});
 class Projects extends Component {
     constructor(){
         super();
@@ -48,7 +59,7 @@ class Projects extends Component {
             });
         }
         return(
-            <div>
+            <div className={`${defaultStyle} pageSection`}>
                 {projectsToRender}
             </div>
         );

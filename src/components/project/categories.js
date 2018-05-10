@@ -20,9 +20,16 @@ const mapDispatchToProps = (dispatch) =>{
 }
 
 const defaultStyle = style({
-    color: "#514c43",
-    minWidth:"300px",
-    textAlign: "center"
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+    gridGap: "20px",
+    $nest: {
+        "img": {
+            border: "2px dotted black",
+            width: "100%"
+          }
+    }
+    
 });
 
 
@@ -39,7 +46,7 @@ class Categories extends Component {
         return(
             <div id="projectsSection"  className="pageSection">
                 <h1>MY PORTFOLIO</h1>
-                <div id="projectsSectionContent">
+                <div className={defaultStyle} id="pprojectsSectionContent">
                     {projectsToRender}
                 </div>
             </div>
