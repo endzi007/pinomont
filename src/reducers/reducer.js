@@ -15,17 +15,39 @@ export const filterReducer = (state = [], action) => {
     return newState; 
 } 
 
-export const categoriesReducer = (state = [], action) => {
-    let newState = [...state];
+export const categoriesReducer = (state = {
+    categories: [],
+    fetching: false, 
+    error: false
+}, action) => {
+    let newState = {...state};
     switch (action.type) {
-        case "ADD_CATEGORIES": 
-            newState = action.payload;
+        case "FETCH_CATEGORIES_START": 
+            newState.fetching = true;
+            break;
+        case "FETCH_CATEGORIES_OK": 
+            newState.categories = action.payload;
+            newState.fetching = false;
+            break;
+        case "FETCH_CATEGORIES_ERROR": 
+            newState.error = action.payload;
+            break;
+        case "FETCH_PRODUCTS_START": 
+            newState.fetching = true;
+            break;
+        case "FETCH_PRODUCTS_OK": 
+            newState.categories[action.payload.index].posts = action.payload.posts;
+            newState.fetching = false;
+            break;
+        case "FETCH_PRODUCTS_ERROR": 
+            newState.error = action.payload;
             break;
         default: 
         break;
     }
     return newState; 
 }
+
 
 
 export const appConfigReducer = (state = {

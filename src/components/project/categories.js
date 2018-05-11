@@ -10,7 +10,7 @@ import { style } from 'typestyle';
 
 const mapStateToProps = (store) =>{
     return{
-        categories: store.categories,
+        data: store.data,
         filterTags: store.filterTags
     }
 }
@@ -39,7 +39,7 @@ class Categories extends Component {
     }
 
     render(){
-        var projectsToRender = this.props.categories.map((project, i)=>{
+        var projectsToRender = this.props.data.categories.map((project, i)=>{
                 return <Category key={"project"+i} className={`${defaultStyle} projectItem`} {...project} />
 
         });

@@ -9,7 +9,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (store) =>{
     return{
-        categories: store.categories,
+        data: store.data,
         filterTags: store.filterTags
     }
 }
@@ -39,27 +39,19 @@ class Projects extends Component {
     }
 
     componentDidMount(){
-        if(this.state.posts.length === 0){
-            fetch(`https://public-api.wordpress.com/rest/v1.1/sites/endzibackend.wordpress.com/posts/?category=${this.props.match.params.title}&number=100`).then((response)=>{
-                return response.json()
-            }).then((parsedData)=>{
-                this.setState({
-                    posts: parsedData.posts
-                }, ()=>{
-                    this.props.startPageTransition(false);
-                });
-
-            }).catch((e)=>{
-                console.log(e);
-            });
+        if(this.props.data.categories.length === 0){
+            this.props.fetchCategories().then(()=>{
+                this.props.fetchProducts(this.props.match.params.title)
+            })
         } else {
-            this.props.startPageTransition(false);
+            // needs to be checked before feching every time because of performance
+            this.props.fetchProducts(this.props.match.params.title).then(this.props.startPageTransition(false));
         }
     }
     render(){
         let projectsToRender;
         if(this.state.posts.length !== 0){
-            projectsToRender = this.state.posts.map((product)=>{
+            projectsToRender = this.props.data.categories[5].posts.map((product)=>{
                 return <img key={product.ID} src={product.featured_image} alt={product.title} />
             });
         }
