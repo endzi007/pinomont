@@ -39,27 +39,30 @@ class Projects extends Component {
     }
 
     componentDidMount(){
-        if(this.props.data.categories.length === 0){
-            this.props.fetchCategories().then(()=>{
-                this.props.fetchProducts(this.props.match.params.title)
+        this.props.fetchCategories().then(()=>{
+            this.props.fetchProducts(this.props.match.params.title).then(()=>{
+                let content = this.props.data.categories.filter((cat)=>{
+                    return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+                });
+                this.setState({posts: content[0].posts});
+                this.props.startPageTransition(false);
             })
-        } else {
-            // needs to be checked before feching every time because of performance
-            this.props.fetchProducts(this.props.match.params.title).then(this.props.startPageTransition(false));
-        }
-    }
+        })
+    } 
+
     render(){
-        let projectsToRender;
-        if(this.state.posts.length !== 0){
-            projectsToRender = this.props.data.categories[5].posts.map((product)=>{
-                return <img key={product.ID} src={product.featured_image} alt={product.title} />
+        if(this.props.data.fetching){
+            return (<div> Loading... </div>)
+        } else {
+            let projectsToRender = this.state.posts.map((post)=>{
+                return <img src={post.featured_image} alt={post.title} />
             });
+            return(
+                <div className={`${defaultStyle} pageSection`}>
+                    {projectsToRender}
+                </div>
+            );
         }
-        return(
-            <div className={`${defaultStyle} pageSection`}>
-                {projectsToRender}
-            </div>
-        );
     }
 }
 

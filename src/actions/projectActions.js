@@ -19,9 +19,8 @@ export const fetchCategories = () =>{
         return fetch(`https://public-api.wordpress.com/rest/v1.1/sites/endzibackend.wordpress.com/posts/?category=kategorije&number=100`).then((response)=>{
             return response.json()
         }).then((parsedData)=>{
-            //let temp = [];
             let temp = parsedData.posts.map((cat)=>{
-                return {title: cat.title, featured_image: cat.featured_image, posts: ""}
+                return {title: cat.title, featured_image: cat.featured_image, posts: "", hover: `${cat.featured_image.substr(0, cat.featured_image.length-4)}-3.jpg`}
             });
             dispatch({type: "FETCH_CATEGORIES_OK", payload: temp})
         }).catch((e)=>{
