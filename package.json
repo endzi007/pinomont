@@ -2,7 +2,7 @@
   "name": "recipe-app",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://endzi007.github.io/pinomont/",
+  "homepage": "http://endzi007.github.io/pinomont/",
   "dependencies": {
     "animate.css": "^3.6.1",
     "bootstrap": "3",
@@ -17,6 +17,7 @@
     "react-dom": "^16.0.0",
     "react-flip-move": "^3.0.1",
     "react-redux": "^5.0.7",
+    "react-responsive-carousel": "^3.1.37",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "react-transition-group": "^2.2.1",
