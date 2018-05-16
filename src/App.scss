@@ -143,5 +143,45 @@ font-family: "Titilium Web", sans-serif;
   }
 }
 
+.goog-te-gadget-simple {
+  padding: 10px 20px;
+  border-radius: 3px;
+  img{
+    display: none!important;
+  }
+}
+.goog-te-menu-value {
+  :last-child{
+    display: none!important;
+  }
+  :nth-child(3){
+    display: none!important;
+  }
+  
+}
 
+.goog-te-menu2-item{
+    .indicator{
+      content:" "!important;
+      display: block;
+      background-image: url(http://icons.iconarchive.com/icons/icons-land/vista-flags/256/English-Language-Flag-1-icon.png)!important;
+    }
 
+}
+
+.goog-te-menu2{
+  table{
+    tbody{
+      tr{
+        td{
+          :nth-child(3){
+            .text{
+              color: red!important; 
+              background-color: green!important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

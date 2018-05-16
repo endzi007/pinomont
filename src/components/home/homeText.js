@@ -6,8 +6,8 @@ import Typist from 'react-typist';
 export default class HomeText extends Component{
     render(){
         return(
-            <div id="headerText" className={`pageSection ${this.props.className}`} >
-
+            <div className={`pageSection ${this.props.className}`} >
+                Dobrodošli na web prezentaciju firme doo Pinomont iz Berana.
             </div>
         );
     }

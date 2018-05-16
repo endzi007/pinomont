@@ -16,6 +16,7 @@ import Projects from './components/project/categories';
 import HomeText from './components/home/homeText';
 import Categories from './components/project/categories';
 import { bindActionCreators } from 'redux';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -38,6 +39,10 @@ class App extends React.Component {
     return (
       <Router>
         <div>
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Pinomont - Berane</title>
+        </Helmet>
         <Navigation style={generalStyles.header} />
         <TransitionOverlay show={this.props.appConfig.pageTransition} />
         <Route path="/" render={({ location }) =>{

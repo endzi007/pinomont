@@ -51,15 +51,15 @@ class Contact extends Component {
         return(
             
             <div className={`pageSection ${defaultStyle}`}>
-                    <h2> Contact me </h2>
+                    <h2> Kontaktirajte nas </h2>
                     <Components.TextField 
-                        label="enis"
+                        label="Ime"
                     />
                     <Components.TextField 
-                        label="suad"
+                        label="Naslov"
                     />
                     <Components.TextField 
-                        label="suad"
+                        label="Poruka"
                     />
             </div>
         );

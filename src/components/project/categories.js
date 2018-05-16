@@ -45,7 +45,7 @@ class Categories extends Component {
         });
         return(
             <div id="projectsSection"  className="pageSection">
-                <h1>MY PORTFOLIO</h1>
+                <h1>Kategorije proizvoda:</h1>
                 <div className={defaultStyle} id="pprojectsSectionContent">
                     {projectsToRender}
                 </div>
