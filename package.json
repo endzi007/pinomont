@@ -2,7 +2,7 @@
   "name": "pinomont-berane",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://endzi007.github.io/pinomont/",
+  "homepage": "http://pinomont.com/",
   "dependencies": {
     "animate.css": "^3.6.1",
     "bootstrap": "3",
