@@ -63,7 +63,7 @@ const TransitionOverlay = (props)=>{
     return(
         <div className={defaultStyle}>
             <svg version="1.1" id="Layer_1" className={svgStyle} xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"
-                width="100vw" height="100vh" viewBox="0 0 776.274 136.025" enable-background="new 0 0 776.274 136.025">
+                width="100vw" height="100vh" viewBox="0 0 776.274 136.025" enableBackground="new 0 0 776.274 136.025">
             <g id="pinomontLogo">
                 <path id="desniKrov_1_" fillRule="evenodd" clipRule="evenodd" fill="#0000FF" d="M510.427,0
                     c-1.484,0.295-2.976,0.559-4.452,0.889c-14.264,3.186-26.746,10.272-38.847,18.144c-16.641,10.822-32.098,23.261-47.712,35.49
@@ -80,7 +80,7 @@ const TransitionOverlay = (props)=>{
                     c-6.822-0.023-13.645-0.172-20.464-0.362c-8.399-0.234-16.8-0.493-25.193-0.89c-6.561-0.31-13.119-0.754-19.664-1.305
                     c-7.314-0.615-14.611-1.43-21.919-2.128c-2.152-0.206-4.321-0.258-6.47-0.489C1.6,101.842,0.808,101.45,0,101.197
                     C0,100.615,0,100.034,0,99.453z"/>
-                <text id="pinomontNatpis" transform="matrix(0.961 0 0 1 171.5405 136.0249)"><tspan x="0" y="0" fill="#0000FF" font-family="'Shrikhand-Regular'" font-size="83.8376">P</tspan><tspan x="57.261" y="0" font-family="'Shrikhand-Regular'" font-size="83.8376">ino</tspan><tspan x="202.969" y="0" fill="#0000FF" font-family="'Shrikhand-Regular'" font-size="83.8376">M</tspan><tspan x="289.739" y="0" font-family="'Shrikhand-Regular'" font-size="83.8376">ont</tspan></text>
+                <text id="pinomontNatpis" transform="matrix(0.961 0 0 1 171.5405 136.0249)"><tspan x="0" y="0" fill="#0000FF" fontFamily="'Shrikhand-Regular'" fontSize="83.8376">P</tspan><tspan x="57.261" y="0" fontFamily="'Shrikhand-Regular'" fontSize="83.8376">ino</tspan><tspan x="202.969" y="0" fill="#0000FF" fontFamily="'Shrikhand-Regular'" fontSize="83.8376">M</tspan><tspan x="289.739" y="0" fontFamily="'Shrikhand-Regular'" fontSize="83.8376">ont</tspan></text>
                 <path id="desniKrov" fillRule="evenodd" clipRule="evenodd" fill="#0000FF" d="M268.169,0.972
                     c1.496,0.295,2.999,0.559,4.486,0.889c14.374,3.186,26.952,10.273,39.146,18.144c16.767,10.822,32.344,23.261,48.076,35.49
                     c4.897,3.807,10.035,7.305,15.036,10.98c1.051,0.772,2.44,1.403,2.052,3.591c-1.143-0.364-2.288-0.511-3.2-1.051
