@@ -9,6 +9,8 @@ import Navigation from './components/navigation/navigationContainer';
 import Footer from './components/footer';
 import TransitionOverlay from './components/helperComponents/transitionOverlay';
 import ProductContainer from './components/products/productContainer';
+import FourOFour from './components/fourOFour';
+import { MuiThemeProvider } from 'material-ui'; 
 
 /*-----pages------*/
 import Contact from './components/contact/contact';
@@ -38,27 +40,30 @@ class App extends React.Component {
     const contactAnim = animateComponent(Contact);
     return (
       <Router>
+        <MuiThemeProvider> 
         <div>
-        <Helmet>
-            <meta charSet="utf-8" />
-            <title>Pinomont - Berane</title>
-        </Helmet>
-        <Navigation style={generalStyles.header} />
-        <TransitionOverlay show={this.props.appConfig.pageTransition} />
-        <Route path="/" render={({ location }) =>{
-          return(
-            <div>
-              <Switch location = {location}>
-                <Route exact path="/" component={homeTextAnim} />
-                <Route exact path="/categories" component={categoriesAnim}/>
-                <Route path="/contact" component={contactAnim}/>
-                <Route path={"/categories/:title"} component={ProductContainer} />
-              </Switch>
-            </div>
-          );
-        }} />
-        <Footer style ={generalStyles.footer}/>
+          <Helmet>
+              <meta charSet="utf-8" />
+              <title>Pinomont - Berane</title>
+          </Helmet>
+          <Navigation style={generalStyles.header} />
+          <TransitionOverlay show={this.props.appConfig.pageTransition} />
+          <Route path="/" render={({ location }) =>{
+            return(
+              <div>
+                <Switch location = {location}>
+                  <Route exact path="/" component={homeTextAnim} />
+                  <Route exact path="/categories" component={categoriesAnim}/>
+                  <Route exact path="/contact" component={contactAnim}/>
+                  <Route path={"/categories/:title"} component={ProductContainer} />
+                  <Route component={FourOFour} />
+                </Switch>
+              </div>
+            );
+          }} />
+          <Footer style ={generalStyles.footer}/>
         </div>
+        </MuiThemeProvider>
         </Router>
 
     );

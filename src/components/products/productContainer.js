@@ -5,6 +5,7 @@ import * as actions from '../../actions/projectActions';
 import fetch from 'isomorphic-fetch';
 import { style } from 'typestyle';
 import { withRouter } from 'react-router-dom';
+import Product from './product';
 
 
 const mapStateToProps = (store) =>{
@@ -55,8 +56,8 @@ class Projects extends Component {
         if(this.props.data.fetching){
             return (<div> Loading... </div>)
         } else {
-            let projectsToRender = this.state.posts.map((post)=>{
-                return <img src={post.featured_image} alt={post.title} />
+            let projectsToRender = this.state.posts.map((post, i)=>{
+                return <Product key={i} delay={i} source={post.featured_image} alternateText={post.title} />
             });
             return(
                 <div className={`${defaultStyle} pageSection`}>

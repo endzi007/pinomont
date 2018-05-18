@@ -115,14 +115,12 @@ const navItemStyle = style({
 
 const NavigationDrawer = ({show, handleClick}) =>{
     return(
-    <MuiThemeProvider>
-        <Drawer open={show}>
-                <div className={navItemStyle} onClick={handleClick.bind(null, "/")}> <SvgImage show={show} name="home"/> Početna </div>
-                <div className={navItemStyle} onClick={handleClick.bind(null, "/categories")}><SvgImage show={show} name="projects"/> Kategorije </div>
-                <div className={navItemStyle} onClick={handleClick.bind(null, "/Contact")}><SvgImage show={show} name="contact"/> Kontakt </div>
-                <div id="google_translate_element" className={navItemStyle}></div>
-        </Drawer>
-    </MuiThemeProvider>
+    <Drawer open={show}>
+            <div className={navItemStyle} onClick={handleClick.bind(null, "/")}> <SvgImage show={show} name="home"/> Početna </div>
+            <div className={navItemStyle} onClick={handleClick.bind(null, "/categories")}><SvgImage show={show} name="projects"/> Kategorije </div>
+            <div className={navItemStyle} onClick={handleClick.bind(null, "/Contact")}><SvgImage show={show} name="contact"/> Kontakt </div>
+            <div id="google_translate_element" className={navItemStyle}></div>
+    </Drawer>
     );
 }
 
