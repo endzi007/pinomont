@@ -3,7 +3,6 @@ import Category from './category';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
-import FlipMove from 'react-flip-move';
 import fetch from 'isomorphic-fetch';
 import { style } from 'typestyle';
 

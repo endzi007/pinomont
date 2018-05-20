@@ -101,8 +101,8 @@ class Category extends Component  {
                 }, this.props.appConfig.transitionDuration);
             }}
             >
-                <img src={this.props.featured_image}className={this.showDiv()}></img>
-                <img src={this.props.hover} className={this.hideDiv()}></img>
+                <img src={this.props.hover}className={this.showDiv()}></img>
+                <img src={this.props.featured_image} className={this.hideDiv()}></img>
                 <LargeProject show={false} {...this.props} />
                 <LinkTimeout path="kuca"/>
             </div>

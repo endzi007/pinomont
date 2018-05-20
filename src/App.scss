@@ -5,9 +5,7 @@
 //@import '../node_modules/animate.css/animate.css';
 body{
   font-family: "Titillium Web", sans-serif;
-  background-image: url("./assets/images/background.png")!important;
-  background-attachment: fixed;
-  background-size: cover;
+  background-color:   rgba(255,255,255,.7)!important;
 }
 h1, h2, h3, h4, h5, h6 {
 font-family: "Titilium Web", sans-serif;
@@ -82,67 +80,6 @@ font-family: "Titilium Web", sans-serif;
   
 }
 
-
-.animateIn {
-	-webkit-animation: flip-in-hor-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: flip-in-hor-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-@-webkit-keyframes flip-in-hor-top {
-  0% {
-    -webkit-transform: rotateX(-80deg);
-            transform: rotateX(-80deg);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-    opacity: 1;
-  }
-}
-@keyframes flip-in-hor-top {
-  0% {
-    -webkit-transform: rotateX(-80deg);
-            transform: rotateX(-80deg);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-    opacity: 1;
-  }
-}
-
-.animateOut {
-	-webkit-animation: flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-	        animation: flip-out-hor-top 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
-
- @-webkit-keyframes flip-out-hor-top {
-  0% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: rotateX(70deg);
-            transform: rotateX(70deg);
-    opacity: 0;
-  }
-}
-@keyframes flip-out-hor-top {
-  0% {
-    -webkit-transform: rotateX(0);
-            transform: rotateX(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: rotateX(70deg);
-            transform: rotateX(70deg);
-    opacity: 0;
-  }
-}
-
 .goog-te-gadget-simple {
   padding: 10px 20px;
   border-radius: 3px;
@@ -183,5 +120,21 @@ font-family: "Titilium Web", sans-serif;
         }
       }
     }
+  }
+}
+
+.goog-te-gadget-simple {
+   padding: 0;
+   border-radius: 3px;
+
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent!important;
+  border: none;
+}
+.goog-te-menu-value{
+  span {
+    color: rgba(255,255,255,.7)!important;
   }
 }
