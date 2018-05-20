@@ -17,6 +17,7 @@ import Contact from './components/contact/contact';
 import Projects from './components/project/categories';
 import HomeText from './components/home/homeText';
 import Categories from './components/project/categories';
+import Header from "./components/header";
 import { bindActionCreators } from 'redux';
 import { Helmet } from 'react-helmet';
 
@@ -46,6 +47,7 @@ class App extends React.Component {
               <meta charSet="utf-8" />
               <title>Pinomont - Berane</title>
           </Helmet>
+          <Header />
           <Navigation style={generalStyles.header} />
           <TransitionOverlay show={this.props.appConfig.pageTransition} />
           <Route path="/" render={({ location }) =>{

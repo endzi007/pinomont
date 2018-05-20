@@ -1058,10 +1058,6 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@3:
-  version "3.3.7"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
-
 bowser@^1.7.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.3.tgz#6643ae4d783f31683f6d23156976b74183862162"
@@ -5525,10 +5521,6 @@ react-event-listener@^0.5.1:
     fbjs "^0.8.16"
     prop-types "^15.6.0"
     warning "^3.0.0"
-
-react-flip-move@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-3.0.1.tgz#7bb5351c6e1d9778baf748cc5292aa98250c3401"
 
 react-helmet@^5.2.0:
   version "5.2.0"

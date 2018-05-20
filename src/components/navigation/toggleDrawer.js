@@ -4,7 +4,7 @@ const ToggleDrawer = ({ show, handleClick })=>{
     let left = show === true ? "260px": "10px";
     return (
         <svg style={{
-            position: "absolute",
+            position: "fixed",
             left: left,
             top: "10px",
             transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
