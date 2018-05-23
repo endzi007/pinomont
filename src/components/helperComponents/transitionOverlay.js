@@ -97,7 +97,12 @@ const TransitionOverlay = (props)=>{
                     c7.203-0.615,14.389-1.43,21.585-2.128c2.119-0.206,4.256-0.258,6.371-0.489c0.813-0.088,1.594-0.48,2.389-0.733
                     C776.274,107.311,776.274,106.73,776.274,106.148z"/>
             </g>
+            <div className="ui segment">
+                    <div className="ui active centered inline loader"></div>
+                <p></p>
+                </div>
             </svg>
+
         </div>
     );
 }

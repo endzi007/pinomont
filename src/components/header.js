@@ -32,24 +32,16 @@ class Header extends Component {
 
     render(){
         return(
-            <div>
-                <div className="ui inverted segment">
-                    <div className="ui inverted secondary pointing menu">
-                        <a className="header item" onClick={this.handleClick.bind(this, "/")}>
-                            Logo
-                        </a>
-                        <a className="active item" onClick={this.handleClick.bind(this, "/")}>
-                        Početna
-                        </a>
-                        <a className="item" onClick={this.handleClick.bind(this, "/categories")}>
-                        Kategorije
-                        </a>
-                        <a className="item" onClick={this.handleClick.bind(this, "/Contact")}>
-                        Kontakt
-                        </a>
-                        <a id="google_translate_element" className="item" style={{backgroundColor: "none!important", border: "none!important"}}>
-                        </a>
-                    </div>
+            <div class="ui fixed inverted menu">
+                <div class="ui container">
+                <a href="#" class="header item" onClick={this.handleClick.bind(this, "/")}>
+                    <img class="logo" src="assets/images/logo.png"/>
+                    PinoMont
+                </a>
+                <a className="item" onClick={this.handleClick.bind(this, "/")}>Početna</a>
+                <a className="item" onClick={this.handleClick.bind(this, "/categories")}>Kategorije</a>
+                <a className="item" onClick={this.handleClick.bind(this, "/Contact")}>Kontakt</a>
+                <a id="google_translate_element" className="item" style={{backgroundColor: "none!important", border: "none!important"}}></a>
                 </div>
             </div>
         );

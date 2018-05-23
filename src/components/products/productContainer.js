@@ -54,7 +54,9 @@ class Projects extends Component {
 
     render(){
         if(this.props.data.fetching){
-            return (<div> Loading... </div>)
+            return (
+                <div class="ui indeterminate text loader">Priprema fajlova...</div>
+            )
         } else {
             let projectsToRender = this.state.posts.map((post, i)=>{
                 return <Product key={i} delay={i} source={post.featured_image} alternateText={post.title} />

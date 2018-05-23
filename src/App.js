@@ -48,7 +48,6 @@ class App extends React.Component {
               <title>Pinomont - Berane</title>
           </Helmet>
           <Header />
-          <Navigation style={generalStyles.header} />
           <TransitionOverlay show={this.props.appConfig.pageTransition} />
           <Route path="/" render={({ location }) =>{
             return(
