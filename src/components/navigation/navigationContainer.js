@@ -30,6 +30,7 @@ class Navigation extends Component {
         super();
         this.state = {
             showDrawer: false,
+            windowSize: 0
         }
     }
 
@@ -51,14 +52,21 @@ class Navigation extends Component {
             this.props.history.push(path)
         }, this.props.appConfig.transitionDuration);
     }
+    updateSize(){
+        this.setState({
+            windowSize: window.innerWidth
+        });
+    }
+    componentDidMount(){
+        window.addEventListener("resize", this.updateSize.bind(this));
+        this.updateSize();
+    }
 
     render(){
         return(
             [
-                <TopMenu handleClick={this.handleClick.bind(this)} visible="visible" />,
-                <NavigationDrawer show={this.state.showDrawer} handleClick={this.handleClick.bind(this)}/>,
-                <ToggleDrawer show ={this.state.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
-
+                <TopMenu handleClick={this.handleClick.bind(this)} showDrawer={this.state.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
+                <ToggleDrawer show={this.state.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
             ]
 
         );

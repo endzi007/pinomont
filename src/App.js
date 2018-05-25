@@ -31,24 +31,24 @@ class App extends React.Component {
     const contactAnim = animateComponent(Contact);
     return (
       <Router>
-        <MuiThemeProvider> 
-          <Navigation />
-          <TransitionOverlay show={this.props.appConfig.pageTransition} /> 
+        <div>
           <Route path="/" render={({ location }) =>{
             return(
-              <div>
+             [
+                <Navigation />,
+                <TransitionOverlay show={this.props.appConfig.pageTransition} />,
                 <Switch location = {location}>
                   <Route exact path="/" component={homeTextAnim} />
                   <Route exact path="/categories" component={categoriesAnim}/>
                   <Route exact path="/contact" component={contactAnim}/>
                   <Route path={"/categories/:title"} component={ProductContainer} />
                   <Route component={FourOFour} />
-                </Switch>
-              </div>
+                </Switch>,
+                <Footer />
+              ]
             );
           }} />
-          <Footer />
-        </MuiThemeProvider>
+        </div>
         </Router>
 
     );

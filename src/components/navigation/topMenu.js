@@ -46,8 +46,8 @@ const SvgImage = ({name, show})=>{
 }
 
 
-export default ({show, handleClick, visible}) =>{
-    const defaultStyle = style({
+export default ({show, handleClick, showDrawer}) =>{
+    const topStyle = style({
         position: "fixed",
         display: "flex",
         left: 0, 
@@ -62,10 +62,29 @@ export default ({show, handleClick, visible}) =>{
         backgroundColor: "#292621",
         color: "#F7F6F1",
         zIndex: 3,
-        transition: "all 0.5s linear"
-    },
-    media({maxWidth:768}, {justifyContent: "flex-end", transition: "all 2s linear"})
+        transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
+    }
 );
+
+    const rightStyle = (left)=> style({
+        position: "fixed",
+        display: "flex",
+        flexDirection: "column",
+        left: 0, 
+        top: 0,
+        height: "100vh",
+        padding: "20px",
+        width: "250px",
+        borderBottom: "3px solid blue",
+        alignItems: "strech",
+        justifyContent: "flex-start",
+        backgroundColor: "#292621",
+        color: "#F7F6F1",
+        zIndex: 3,
+        transform: `translateX(${left}px)`,
+        transition:"all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
+        });
+
     const itemStyle = style({
         display: "flex",
         alignItems: "center",
@@ -81,12 +100,13 @@ export default ({show, handleClick, visible}) =>{
 
     const rightNav = style({
         display: "flex",
-        justifyContent: "space-arround"
-    },
-    media({maxWidth: 768}, {display: "none"})
-    );
+        justifyContent: "space-arround",
+        flexDirection: show==="top"? "row": "column"
+    });
+
+
     return(
-        <nav className={defaultStyle}>
+        <nav className={show==="top"? topStyle : rightStyle(showDrawer===true? 0: -250)}>
                 <div>
                     <div className={itemStyle} style={{fontSize: "2em"}}onClick={handleClick.bind(null, "/")}>Pinomont</div>
                 </div>
@@ -95,10 +115,28 @@ export default ({show, handleClick, visible}) =>{
                     <div className={itemStyle} onClick={handleClick.bind(null, "/categories")}><SvgImage show={show} name="projects"/> Kategorije </div>
                     <div className={itemStyle} onClick={handleClick.bind(null, "/Contact")}><SvgImage show={show} name="contact"/> Kontakt </div>
                     <div className={itemStyle} id="google_translate_element"></div>
+                    <div className={itemStyle} onClick={()=>{
+                        manualTranslate();
+                    }}>Srpski</div>
                 </div>
         </nav>
     );
 }
+function manualTranslate () {
+  var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+  if(!iframe) return;
 
+  var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+  var restore_el = innerDoc.getElementsByTagName("button");
+
+  for(var i = 0; i < restore_el.length; i++){
+    if(restore_el[i].id.indexOf("restore") >= 0) {
+      restore_el[i].click();
+      var close_el = innerDoc.getElementsByClassName("goog-close-link");
+      close_el[0].click();
+      return;
+    }
+  }
+}
 
 

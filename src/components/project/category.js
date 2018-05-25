@@ -95,13 +95,12 @@ class Category extends Component  {
                     return;
                 }
                 this.props.startPageTransition(true);
-        
                 setTimeout(()=>{
                     this.props.history.push(path)
                 }, this.props.appConfig.transitionDuration);
             }}
             >
-                <img src={this.props.hover}className={this.showDiv()}></img>
+                <img src={this.props.hover} className={this.showDiv()}></img>
                 <img src={this.props.featured_image} className={this.hideDiv()}></img>
             </div>
         );

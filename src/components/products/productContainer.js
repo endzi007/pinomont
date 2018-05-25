@@ -35,11 +35,16 @@ class Projects extends Component {
     constructor(){
         super();
         this.state = {
-            posts: []
+            posts: [],
+            title: ""
         }
     }
 
     componentDidMount(){
+        const title = this.props.match.params.title.split("_").join(" ");
+        this.setState({
+            title: title
+        });
         this.props.fetchCategories().then(()=>{
             this.props.fetchProducts(this.props.match.params.title).then(()=>{
                 let content = this.props.data.categories.filter((cat)=>{
@@ -51,19 +56,23 @@ class Projects extends Component {
             })
         })
     } 
-
     render(){
+
         if(this.props.data.fetching){
             return (
-                <div class="ui indeterminate text loader">Priprema fajlova...</div>
+                <div className="ui indeterminate text loader">Priprema fajlova...</div>
             )
         } else {
             let projectsToRender = this.state.posts.map((post, i)=>{
                 return <Product key={i} delay={i} source={post.featured_image} alternateText={post.title} />
             });
             return(
-                <div className={`${defaultStyle} pageSection`}>
+                <div className="pageSection">
+                <h1>{this.state.title}</h1>
+                <hr/>
+                <div className={`${defaultStyle}`}>
                     {projectsToRender}
+                </div>
                 </div>
             );
         }
