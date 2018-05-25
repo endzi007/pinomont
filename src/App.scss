@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Raleway');
-
+@import url('https://fonts.googleapis.com/css?family=Rubik');
 @import './assets/css/font-awesome.css';
-//@import '../node_modules/animate.css/animate.css';
+
 body{
-  font-family: "Titillium Web", sans-serif;
-  background-color:   rgba(255,255,255,.7)!important;
+  font-family: "Rubick", sans-serif!important;
+  background-color:   #292621!important;
 }
 h1, h2, h3, h4, h5, h6 {
-font-family: "Titilium Web", sans-serif;
+font-family: "Rubick", sans-serif;
+text-align: center;
 }
 
 #projectsSectionContent{
@@ -17,16 +16,15 @@ font-family: "Titilium Web", sans-serif;
   grid-gap: 20px;
 
   img {
-    border: 2px dotted lightgoldenrodyellow;
     width: 100%;
   }
 }
 
 .pageSection{
-  width: 80vw;
-  margin-left: 10vw;
-  background: none;
-  padding: 50px;
+  width: 100%;
+  background-color: white;
+  padding: 50px 10vw;
+  padding-top: 100px;
 }
 
 #contactSection {
@@ -39,7 +37,6 @@ font-family: "Titilium Web", sans-serif;
     text-align: center;
   }
 }
-
 
 #contactSection{ 
   input{
@@ -106,22 +103,6 @@ font-family: "Titilium Web", sans-serif;
 
 }
 
-.goog-te-menu2{
-  table{
-    tbody{
-      tr{
-        td{
-          :nth-child(3){
-            .text{
-              color: red!important; 
-              background-color: green!important;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 .goog-te-gadget-simple {
    padding: 0;
@@ -144,4 +125,8 @@ font-family: "Titilium Web", sans-serif;
  .goog-te-menu2{
     border: none!important;
   }
+}
+
+hr {
+  margin: 25px 0;
 }

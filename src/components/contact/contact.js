@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import { style } from 'typestyle';
 import * as Components from '../helperComponents';
 
-
-const defaultStyle = style({
-    textAlign: "center",
-    margin: "0 auto",
-    padding: "20px",
-    paddingTop: "40px"
-});
-
 const inputStyle={
     width: "70%",
     backgroundColor: "rgba(255,255,255,0.5)",
@@ -50,8 +42,9 @@ class Contact extends Component {
 
         return(
             
-            <div className={`pageSection ${defaultStyle}`}>
+            <div className={`pageSection`}>
                     <h2> Kontaktirajte nas </h2>
+                    <hr/>
                     <Components.TextField 
                         label="Ime"
                     />

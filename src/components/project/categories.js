@@ -24,7 +24,6 @@ const defaultStyle = style({
     gridGap: "20px",
     $nest: {
         "img": {
-            border: "2px dotted black",
             width: "100%"
           }
     }
@@ -45,7 +44,8 @@ class Categories extends Component {
         return(
             <div id="projectsSection"  className="pageSection">
                 <h1>Kategorije proizvoda:</h1>
-                <div className={defaultStyle} id="pprojectsSectionContent">
+                <hr/>
+                <div className={defaultStyle} id="projectsSectionContent">
                     {projectsToRender}
                 </div>
             </div>

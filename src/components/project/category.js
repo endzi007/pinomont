@@ -103,8 +103,6 @@ class Category extends Component  {
             >
                 <img src={this.props.hover}className={this.showDiv()}></img>
                 <img src={this.props.featured_image} className={this.hideDiv()}></img>
-                <LargeProject show={false} {...this.props} />
-                <LinkTimeout path="kuca"/>
             </div>
         );
     }

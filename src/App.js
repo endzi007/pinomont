@@ -21,16 +21,6 @@ import Header from "./components/header";
 import { bindActionCreators } from 'redux';
 import { Helmet } from 'react-helmet';
 
-
-
-
-
-const generalStyles = {
-  header: 0,
-  content: 0,
-  footer: 0
-};
-
 class App extends React.Component {
   componentDidMount(){
     this.props.fetchCategories();
@@ -43,7 +33,7 @@ class App extends React.Component {
       <Router>
         <MuiThemeProvider> 
           <Navigation />
-          
+          <TransitionOverlay show={this.props.appConfig.pageTransition} /> 
           <Route path="/" render={({ location }) =>{
             return(
               <div>
@@ -57,7 +47,7 @@ class App extends React.Component {
               </div>
             );
           }} />
-          <Footer style ={generalStyles.footer}/>
+          <Footer />
         </MuiThemeProvider>
         </Router>
 
