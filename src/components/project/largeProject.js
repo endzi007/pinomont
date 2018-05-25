@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal } from "react-bootstrap";
 import { style, media } from 'typestyle';
 
 const footerButton = style({
@@ -55,9 +54,9 @@ const LargeProject = ({
 })=>{
     return (
         //dialogClassName used for custom modal sizing 
-        <Modal dialogClassName={modalSize} show={show} onHide={toggleModalShow}>
-            <Modal.Header> {title} </Modal.Header>
-                <Modal.Body>
+        <div dialogClassName={modalSize} show={show} onHide={toggleModalShow}>
+            <div> {title} </div>
+                <div>
                     <div className={modalContainer}>
                         <h2>{title}</h2>
                         <div className={modalBody}>
@@ -73,12 +72,12 @@ const LargeProject = ({
                         </div>
                                      
                     </div>
-                </Modal.Body>
-            <Modal.Footer>
+                </div>
+            <div>
                 <a href={url} target="_blank" className={`btn btn-success ${footerButton}`}> Go to original project </a>
                 <a href={url} target="_blank" className={`btn btn-default ${footerButton}`}> Go to Github <i className="fa fa-github"></i> </a>
-            </Modal.Footer>
-        </Modal>
+            </div>
+        </div>
     )
 }
 

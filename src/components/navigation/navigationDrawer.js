@@ -1,9 +1,8 @@
 import React from 'react';
 import { Drawer, MenuItem, RaisedButton, MuiThemeProvider  } from 'material-ui';
-import { style, keyframes} from 'typestyle';
+import { style, keyframes, media} from 'typestyle';
 
 const SvgImage = ({name, show})=>{
-
     function styles(delay, color) {
         var animationIn = keyframes({
                 "0%": {
@@ -96,7 +95,6 @@ const SvgImage = ({name, show})=>{
 }
 
 const navItemStyle = style({
-    display: "flex",
     padding: "10px",
     justifyContent: "center",
     textAlign: "center",
@@ -109,9 +107,8 @@ const navItemStyle = style({
             cursor: "pointer"
         }
     }
-});
-
-
+}
+);
 
 const NavigationDrawer = ({show, handleClick}) =>{
     return(

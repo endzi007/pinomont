@@ -42,13 +42,8 @@ class App extends React.Component {
     return (
       <Router>
         <MuiThemeProvider> 
-        <div>
-          <Helmet>
-              <meta charSet="utf-8" />
-              <title>Pinomont - Berane</title>
-          </Helmet>
-          <Header />
-          <TransitionOverlay show={this.props.appConfig.pageTransition} />
+          <Navigation />
+          
           <Route path="/" render={({ location }) =>{
             return(
               <div>
@@ -63,7 +58,6 @@ class App extends React.Component {
             );
           }} />
           <Footer style ={generalStyles.footer}/>
-        </div>
         </MuiThemeProvider>
         </Router>
 

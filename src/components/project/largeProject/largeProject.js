@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Modal } from "react-bootstrap";
 import { style, media } from 'typestyle';
 import * as styles from './style';
 

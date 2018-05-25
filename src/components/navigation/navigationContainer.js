@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { Navbar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
@@ -8,6 +7,7 @@ import { style } from "typestyle";
 import * as actions from '../../actions/projectActions'
 import NavigationDrawer from './navigationDrawer';
 import ToggleDrawer from './toggleDrawer';
+import TopMenu from './topMenu';
 
 
 var defaultStyle = style({
@@ -26,10 +26,6 @@ var defaultStyle = style({
 });
 
 class Navigation extends Component {
-    static contextTypes = {
-        router: PropTypes.object
-    }
-
     constructor(){
         super();
         this.state = {
@@ -58,10 +54,13 @@ class Navigation extends Component {
 
     render(){
         return(
-            <div className={defaultStyle}>
-                <NavigationDrawer show={this.state.showDrawer} handleClick={this.handleClick.bind(this)}/>
+            [
+                <TopMenu handleClick={this.handleClick.bind(this)} visible="visible" />,
+                <NavigationDrawer show={this.state.showDrawer} handleClick={this.handleClick.bind(this)}/>,
                 <ToggleDrawer show ={this.state.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
-            </div>
+
+            ]
+
         );
     }
 }

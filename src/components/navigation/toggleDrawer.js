@@ -1,9 +1,16 @@
 import React from 'react';
+import { style, media } from 'typestyle';
+
 
 const ToggleDrawer = ({ show, handleClick })=>{
+    const defaultStyle = style(
+        {zIndex: 20, fill: "#F7F6F1"},
+        media({minWidth: 768}, {display: "none"}),
+        media({maxWidth: 768}, {display: "block", zIndex: 100})
+);
     let left = show === true ? "260px": "10px";
     return (
-        <svg style={{
+        <svg className={defaultStyle} style={{
             position: "fixed",
             left: left,
             top: "10px",
