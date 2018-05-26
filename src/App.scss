@@ -4,6 +4,7 @@
 body{
   font-family: "Rubick", sans-serif!important;
   background-color:   #292621!important;
+  overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6 {
 font-family: "Rubick", sans-serif;
@@ -25,6 +26,7 @@ text-align: center;
   background-color: white;
   padding: 50px 10vw;
   padding-top: 100px;
+  min-height: 75vh;
 }
 
 #contactSection {
@@ -132,4 +134,8 @@ hr {
 }
 .goog-te-banner-frame{
   display: none!important;
-}  
+} 
+
+#goog-gt-tt{
+  display: none!important;
+}
