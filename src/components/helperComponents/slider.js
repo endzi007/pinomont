@@ -37,8 +37,9 @@ const sliderItem = (img) => {
         alignItems: "center",
         justifyContent: "space-between",
         padding: "30px",
-        animation: `${animation} 0.5s both`
+        animation: `${animation} 0.5s linear`
     })
+
 };
 
 const sliderItemHeading =  style({
@@ -71,7 +72,18 @@ export default class extends React.Component {
             counter: 0
         }
     }
-
+    sliderInterval =  setInterval(()=>{
+            console.log("slider changed");
+            if(this.state.counter===this.state.slides.length-1){
+                this.setState({
+                    counter: 0
+                });
+            } else {
+                this.setState({
+                   counter: this.state.counter+1 
+                });
+            }
+        }, 3000)
     componentDidMount(){
         let arrToRender = [
             <div className={sliderItem(Image)}><div className={sliderItemHeading}>Pregledaj kategorije</div></div>, 
@@ -81,20 +93,12 @@ export default class extends React.Component {
         this.setState({
             slides: arrToRender
         });
-        this.changeSlide();
+        this.sliderInterval;
+        
     }
-    changeSlide(){
-        setInterval(()=>{
-            if(this.state.counter===this.state.slides.length-1 ){
-                this.setState({
-                    counter: 0
-                });
-            } else {
-                this.setState({
-                   counter: this.state.counter+1 
-                });
-            }
-        }, 4000);
+
+    componentWillUnmount(){
+        clearInterval(this.sliderInterval);
     }
     render(){
         return(

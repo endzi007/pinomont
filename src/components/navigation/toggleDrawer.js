@@ -3,14 +3,14 @@ import { style, media } from 'typestyle';
 
 
 const ToggleDrawer = ({ show, handleClick })=>{
-    const defaultStyle = () => style(
+    const defaultStyle = style(
         {zIndex: 20, fill: "#F7F6F1"},
-        media({minWidth: 768}, {display: "none"}),
+        media({minWidth: 768}, {display: "none", zIndex: 0}),
         media({maxWidth: 768}, {display: "block", zIndex: 100})
 );
     let left = show === true ? "260px": "10px";
     return (
-        <svg className={defaultStyle()} style={{
+        <svg className={defaultStyle} style={{
             position: "fixed",
             left: left,
             top: "10px",
