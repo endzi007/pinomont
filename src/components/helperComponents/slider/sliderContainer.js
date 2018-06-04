@@ -2,7 +2,6 @@ import React from 'react';
 import { style, keyframes } from 'typestyle';
 import Image from '../../../assets/images/slides/kategorije.png';
 import Slide2 from '../../../assets/images/slides/areon_fresh_vawe.jpg';
-import Slide3 from '../../../assets/images/slides/areonFresko.jpg';
 import SingleSlide from './singleSlide';
 import SliderArrow from './sliderArrow';
 
@@ -33,7 +32,7 @@ export default class extends React.Component {
                    counter: this.state.counter+1 
                 });
             }
-        }, 3000)
+        }, 7000)
     componentDidMount(){
         this.setState({
             slides: [
@@ -44,11 +43,7 @@ export default class extends React.Component {
                 {
                     image: Slide2,
                     title: "Slide 2"
-                }, 
-                {
-                    image: Slide3,
-                    title: "Slide 3"
-                }
+                },
             ]
         });
         this.sliderInterval;
@@ -61,7 +56,8 @@ export default class extends React.Component {
         return(
             <div className={sliderContainer}>
                 <SliderArrow direction="left" />
-                    <SingleSlide img={this.state.slides.length !== 0 ? this.state.slides[this.state.counter].image: "" }/>
+                    <SingleSlide enter={true} img={this.state.slides.length !== 0 ? this.state.slides[0].image: "" }/>
+                    <SingleSlide enter={false} img={this.state.slides.length !== 0 ? this.state.slides[1].image: "" }/>
                 <SliderArrow direction="right" />
             </div>
         );
