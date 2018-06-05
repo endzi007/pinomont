@@ -1,7 +1,5 @@
 import React from 'react';
 import { style, keyframes } from 'typestyle';
-import Image from '../../../assets/images/slides/kategorije.png';
-import Slide2 from '../../../assets/images/slides/areon_fresh_vawe.jpg';
 import SingleSlide from './singleSlide';
 import SliderArrow from './sliderArrow';
 
@@ -35,31 +33,35 @@ export default class extends React.Component {
         }, 7000)
     componentDidMount(){
         this.setState({
-            slides: [
-                {
-                    image: Image,
-                    title: "Slide 1"
-                }, 
-                {
-                    image: Slide2,
-                    title: "Slide 2"
-                },
-            ]
+            slides: this.props.children
         });
         this.sliderInterval;
     }
 
+    startTransition(prop){
+        console.log("start transition", this.state.counter);
+        this.setState({
+            transitionTime: prop
+        });
+    }
     componentWillUnmount(){
         clearInterval(this.sliderInterval);
     }
     render(){
-        return(
-            <div className={sliderContainer}>
-                <SliderArrow direction="left" />
-                    <SingleSlide enter={true} img={this.state.slides.length !== 0 ? this.state.slides[0].image: "" }/>
-                    <SingleSlide enter={false} img={this.state.slides.length !== 0 ? this.state.slides[1].image: "" }/>
-                <SliderArrow direction="right" />
-            </div>
-        );
+        if(this.state.slides.length===0){
+            return(
+                <div className={sliderContainer}>
+                    loading...
+                </div>
+            )
+        } else {
+            return(
+                <div className={sliderContainer}>
+                    <SliderArrow direction="left" />
+                        {React.cloneElement(this.state.slides[this.state.counter], {startTransition: this.startTransition.bind(this)})}
+                    <SliderArrow direction="right" />
+                </div>
+            );
+        }
     }
 }
