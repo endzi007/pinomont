@@ -16,7 +16,7 @@ export default class extends React.Component {
         this.state = {
             counter: 0,
             transitionTime: false, 
-            slides: []
+            slides:[]
         }
     }
     
@@ -33,17 +33,11 @@ export default class extends React.Component {
         }, 7000)
     componentDidMount(){
         this.setState({
-            slides: this.props.children
+            slides: this.props.slides
         });
         this.sliderInterval;
     }
 
-    startTransition(prop){
-        console.log("start transition", this.state.counter);
-        this.setState({
-            transitionTime: prop
-        });
-    }
     componentWillUnmount(){
         clearInterval(this.sliderInterval);
     }
@@ -55,10 +49,13 @@ export default class extends React.Component {
                 </div>
             )
         } else {
+            const arrToRender = this.props.slides.map((slide, i)=>{
+                return <SingleSlide key={`key_singleSlide_${i}`} img={slide.img} title={slide.title} inProp={slide.index===this.state.counter} />
+            });
             return(
                 <div className={sliderContainer}>
                     <SliderArrow direction="left" />
-                        {React.cloneElement(this.state.slides[this.state.counter], {startTransition: this.startTransition.bind(this)})}
+                    {arrToRender}
                     <SliderArrow direction="right" />
                 </div>
             );

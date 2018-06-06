@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { style } from 'typestyle';
 import Slider from '../helperComponents/slider/sliderContainer';
-import Slide from '../helperComponents/slider/singleSlide';
-import SlideImage1 from '../../assets/images/background.png';
-import SlideImage2 from '../../assets/images/background.jpg';
+import SlideImage1 from '../../assets/images/slides/areonFresko.jpg';
+import SlideImage2 from '../../assets/images/slides/kategorije.png';
 
 export default ()=>{
     const wrapperStyle = style({
         width: "100vw",
         height: `100vh`,
     });
+    const slides = [{
+        index: 0,
+        img: SlideImage1,
+        title: "slide 1"
+    },
+    {
+        index: 1,
+        img: SlideImage2,
+        title: "slide 2"
+    }
 
+];
     return(
             <div className={wrapperStyle}>
-                <Slider>
-                    <Slide img={SlideImage1} title="some text"/>
-                    <Slide img={SlideImage2} title="some text"/>
-                </Slider>
+                <Slider slides={slides}/>
             </div>
         );
 }
