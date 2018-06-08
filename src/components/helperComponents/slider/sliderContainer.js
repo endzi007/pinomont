@@ -5,8 +5,8 @@ import SliderArrow from './sliderArrow';
 
 
 const sliderContainer = style({
-    width: "100%",
-    height: "100%",
+    width: "100vw",
+    height: "100vh",
     position: "relative"
 });
 
@@ -15,31 +15,58 @@ export default class extends React.Component {
         super();
         this.state = {
             counter: 0,
-            transitionTime: false, 
+            transitionTime: 7000, 
             slides:[]
         }
     }
-    
-    sliderInterval =  setInterval(()=>{
-            if(this.state.counter===this.state.slides.length-1){
-                this.setState({
-                    counter: 0
-                });
-            } else {
-                this.setState({
-                   counter: this.state.counter+1 
-                });
-            }
-        }, 7000)
+
     componentDidMount(){
         this.setState({
             slides: this.props.slides
+        }, ()=>{
+            this.intervalManager(true);
         });
-        this.sliderInterval;
+    }
+    intervalManager(start){
+        if(start){
+            this.sliderInterval = setInterval(this.interval.bind(this), this.state.transitionTime);
+        } else {
+            clearInterval(this.sliderInterval);
+        }
+    }
+    sliderInterval = () => setInterval(this.interval.bind(this), this.state.transitionTime);
+
+    interval(){
+        if(this.state.counter===this.state.slides.length-1){
+            this.setState({
+                counter: 0
+            });
+        } else {
+            this.setState({
+               counter: this.state.counter+1 
+            });
+        }
     }
 
+    handleClick(next){
+        this.intervalManager(false);
+        const nextSlide = next === "next" ? this.state.counter +1 : this.state.counter -1;
+        let nextCounter;
+        if(nextSlide >= this.state.slides.length){
+            nextCounter = 0;
+        } else if(nextSlide < 0){
+            nextCounter = this.state.slides.length-1;
+        } else {
+            nextCounter = nextSlide;
+        }
+        this.setState({
+            counter: nextCounter
+        }, ()=>{
+            this.intervalManager(true);
+        });
+    }
     componentWillUnmount(){
-        clearInterval(this.sliderInterval);
+        this.intervalManager(false);
     }
     render(){
         if(this.state.slides.length===0){
@@ -54,9 +81,9 @@ export default class extends React.Component {
             });
             return(
                 <div className={sliderContainer}>
-                    <SliderArrow direction="left" />
+                    <SliderArrow handleClick={this.handleClick.bind(this)} direction="left" />
                     {arrToRender}
-                    <SliderArrow direction="right" />
+                    <SliderArrow handleClick={this.handleClick.bind(this)} direction="right" />
                 </div>
             );
         }

@@ -14,6 +14,15 @@ const transitionStyles = {
     exited: 0
 }
 
+const innerStyle = style({
+    position: "relative",
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyItems: "center"
+});
+
 export default ({ img, title, inProp})=>{
 
     return(
@@ -31,6 +40,9 @@ export default ({ img, title, inProp})=>{
                     overflow: "hidden",
                     opacity: transitionStyles[state]
                     }}>
+                    <div clasName={innerStyle}>
+                        <div style={{color: "white"}}>Enis enis enis enis</div>
+                    </div>
                 </div>
             )
         }}
