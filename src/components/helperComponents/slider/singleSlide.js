@@ -16,43 +16,83 @@ const transitionStyles = {
 
 const panning = keyframes({
     "0%":{
-        transform: "translate(-20px -20px)",
+        transform: "translate(0, 0)"
     },
     "100%":{
-        transform: "translate(10px 10px)",
+        transform: "translate(100px, 100px)"
     }
 });
 
-const innerStyle = style({
-    position: "relative",
-    height: "100%",
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    animation: `${panning} 10s both`
-});
 
+export default ({ img, link, inProp})=>{
+    const animationDiv = style({
+        position: "absolute",
+        top: "-100px",
+        left: "-100px",
+        width: "110%",
+        height: "110%",
+        animation: `${panning} 20s linear infinite`,
+        animationDirection: "alternate",
+        backgroundImage: `url(${img})`, 
+        backgroundSize: "cover"
+    });
 
-export default ({ img, title, inProp})=>{
+    const slideContent = style({
+        position: "absolute",
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        color: "white",
+        alignContent: "center",
+        justifyContent: "space-between"
+    });
 
+    const sliderContainer = (state)=>style({
+        transition: `opacity ${timeout}ms ease-in`,
+        width: "100%",
+        height: "100%",
+        maxHeight: "100vh",
+        overflow: "hidden",
+        opacity: transitionStyles[state],
+        position: "absolute",
+        });
+    const fontFam = "Arapey, Georgia, Times, Times New Roman, serif";
+    const timeout = 500;
     return(
-        <Transition in={inProp} timeout={300}>
+        <Transition in={inProp} timeout={timeout}>
         {(state)=>{
             return (
-                <div className={innerStyle} style={{
-                    transition: `opacity 300ms ease-in`,
-                    backgroundImage: `url(${img})`,
-                    position: "absolute",
-                    left: "0",
-                    top: "0",
-                    width: "100%",
-                    height: "100%",
-                    overflow: "hidden",
-                    opacity: transitionStyles[state], 
-                    }}>
+                <div className={sliderContainer(state)}>
                     <div>
-                        <div style={{color: "white", fontSize: "5em", fontFamily: "'Arapey',Georgia,Times, Times New Roman, serif"}}>{title}</div>
+                        <div className={animationDiv}></div>
+                        <div id="slideContent" className={slideContent}>
+                            <h3 
+                                style={{
+                                    marginTop: "100px", 
+                                    fontFamily: fontFam,
+                                    fontWeight: "100",
+                                    fontSize: "2em",
+                                    borderBottom: "1px solid white",
+                                    paddingBottom: "12px",
+                                    width: "260px",
+                                    alignSelf: "center"
+                                }}>
+                                Pinomont - Berane
+                            </h3>
+                            <h1 
+                                style={{
+                                    fontFamily: fontFam,
+                                    fontStretch: "extra-expanded",
+                                    fontWeight: "100",
+                                    maxWidth: "50vw",
+                                    alignSelf: "center",
+                                    fontSize: "3em"
+                                }}> 
+                                Najbolja auto kozmetika u Crnoj Gori. Uvoznik i distributer za Areon proizvode...
+                            </h1>
+                            <h2 style={{marginBottom: "50px", fontFamily: fontFam, fontWeight: "100",}}><a href={link}>Pogledaj još..</a></h2>
+                        </div>
                     </div>
                 </div>
             )

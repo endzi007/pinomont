@@ -12,14 +12,13 @@ export default ()=>{
     const slides = [{
         index: 0,
         img: SlideImage1,
-        title: "slide 1"
+        link: ""
     },
     {
         index: 1,
         img: SlideImage2,
-        title: "slide 2"
+        link:""
     }
-
 ];
     return(
             <div className={wrapperStyle}>

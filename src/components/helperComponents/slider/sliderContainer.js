@@ -80,7 +80,7 @@ export default class extends React.Component {
                 return <SingleSlide 
                 key={`key_singleSlide_${i}`} 
                 img={slide.img} 
-                title={slide.title} 
+                link={slide.link} 
                 inProp={slide.index===this.state.counter} />
             });
             return(
