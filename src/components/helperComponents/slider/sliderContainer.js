@@ -77,7 +77,11 @@ export default class extends React.Component {
             )
         } else {
             const arrToRender = this.props.slides.map((slide, i)=>{
-                return <SingleSlide key={`key_singleSlide_${i}`} img={slide.img} title={slide.title} inProp={slide.index===this.state.counter} />
+                return <SingleSlide 
+                key={`key_singleSlide_${i}`} 
+                img={slide.img} 
+                title={slide.title} 
+                inProp={slide.index===this.state.counter} />
             });
             return(
                 <div className={sliderContainer}>

@@ -14,14 +14,25 @@ const transitionStyles = {
     exited: 0
 }
 
+const panning = keyframes({
+    "0%":{
+        transform: "translate(-20px -20px)",
+    },
+    "100%":{
+        transform: "translate(10px 10px)",
+    }
+});
+
 const innerStyle = style({
     position: "relative",
     height: "100%",
     width: "100%",
     display: "flex",
     alignItems: "center",
-    justifyItems: "center"
+    justifyContent: "center",
+    animation: `${panning} 10s both`
 });
+
 
 export default ({ img, title, inProp})=>{
 
@@ -29,7 +40,7 @@ export default ({ img, title, inProp})=>{
         <Transition in={inProp} timeout={300}>
         {(state)=>{
             return (
-                <div style={{
+                <div className={innerStyle} style={{
                     transition: `opacity 300ms ease-in`,
                     backgroundImage: `url(${img})`,
                     position: "absolute",
@@ -38,10 +49,10 @@ export default ({ img, title, inProp})=>{
                     width: "100%",
                     height: "100%",
                     overflow: "hidden",
-                    opacity: transitionStyles[state]
+                    opacity: transitionStyles[state], 
                     }}>
-                    <div clasName={innerStyle}>
-                        <div style={{color: "white"}}>Enis enis enis enis</div>
+                    <div>
+                        <div style={{color: "white", fontSize: "5em", fontFamily: "'Arapey',Georgia,Times, Times New Roman, serif"}}>{title}</div>
                     </div>
                 </div>
             )
