@@ -3,6 +3,7 @@ import { Drawer, MenuItem, RaisedButton, MuiThemeProvider  } from 'material-ui';
 import { style, keyframes, media} from 'typestyle';
 import PinomontLogo from '../../assets/images/pinomont.svg';
 import SvgImage from './svgIcon';
+import styles from '../helperComponents/templateStyles';
 
 export default ({show, handleClick, showDrawer}) =>{
     const topStyle = style({
@@ -13,13 +14,13 @@ export default ({show, handleClick, showDrawer}) =>{
         height: "70px",
         padding: "20px",
         width: "100%",
-        borderBottom: "3px solid blue",
+        borderBottom: `3px solid ${styles.primaryColor}`,
         alignItems: "strech",
         justifyContent: "space-between",
         flex: 1,
-        backgroundColor: "#292621",
-        color: "#F7F6F1",
-        zIndex: 3,
+        backgroundColor: `${styles.darkBackgroundColor}`,
+        color: `${styles.lightText}`,
+        zIndex: "33",
         transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
     }
 );
@@ -35,9 +36,9 @@ export default ({show, handleClick, showDrawer}) =>{
         borderBottom: "3px solid blue",
         alignItems: "strech",
         justifyContent: "flex-start",
-        backgroundColor: "#292621",
-        color: "#F7F6F1",
-        zIndex: 3,
+        backgroundColor:`${styles.darkBackgroundColor}`,
+        color: `${styles.lightText}`,
+        zIndex: "33",
         transform: `translateX(${left}px)`,
         transition:"all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
         });
@@ -56,18 +57,15 @@ export default ({show, handleClick, showDrawer}) =>{
         media({maxWidth: 768},{
             flexDirection: "column",
             padding: "20px",
-            borderBottom: "1px solid gray"
         })
     );
 
     const rightNav = style({
         display: "flex",
         justifyContent: "space-arround",
-        flexDirection: show==="top"? "row": "column"
+        flexDirection: show==="top"? "row": "column",
     }
 );
-
-console.log()
     return(
         <nav className={show==="top"? topStyle : rightStyle(showDrawer===true? 0: -250)}>
                 <div>

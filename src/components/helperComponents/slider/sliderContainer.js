@@ -2,6 +2,7 @@ import React from 'react';
 import { style, keyframes } from 'typestyle';
 import SingleSlide from './singleSlide';
 import SliderArrow from './sliderArrow';
+import { connect } from 'react-redux';
 
 
 const sliderContainer = style({
@@ -10,7 +11,7 @@ const sliderContainer = style({
     position: "relative"
 });
 
-export default class extends React.Component {
+class SliderContainer extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -93,3 +94,11 @@ export default class extends React.Component {
         }
     }
 }
+
+function mapStateToProps(store){
+    return {
+        style: store.styleConfig
+    }
+}
+
+export default connect(mapStateToProps)(SliderContainer)

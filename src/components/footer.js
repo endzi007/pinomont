@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { style } from 'typestyle';
-
+import styles from '../components/helperComponents/templateStyles';
 const defaultStyle = style({
     border: "1px solid black"
 
 });
 
-
-
 class Footer extends Component {
     render(){
         return(
-            <div style={{backgroundColor: "#292621"}} className="ui inverted vertical footer segment">
+            <div style={{backgroundColor: "#292621", borderTop: `3px solid ${styles.primaryColor}`}} className="ui inverted vertical footer segment">
                 <div className="ui center aligned container">
                 <div className="ui stackable inverted divided grid">
                     <div className="five wide column">

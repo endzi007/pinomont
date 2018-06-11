@@ -17,7 +17,6 @@ import Contact from './components/contact/contact';
 import Projects from './components/project/categories';
 import HomeText from './components/home/homeText';
 import Categories from './components/project/categories';
-import Header from "./components/header";
 import { bindActionCreators } from 'redux';
 import { Helmet } from 'react-helmet';
 

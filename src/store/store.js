@@ -15,6 +15,12 @@ const defaultState = {
         categories: [],
         fetching: false,
         error: false
+    },
+    styleConfig: {
+        primaryColor: "blue",
+        secondaryColor: "green",
+        thirdColor: "darkgray",
+        fourthColor: "whiteGray",
     }
 }
 window.state = defaultState;
