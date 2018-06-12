@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
 import fetch from 'isomorphic-fetch';
 import { style } from 'typestyle';
-
+import styles from '../helperComponents/templateStyles';
 
 const mapStateToProps = (store) =>{
     return{

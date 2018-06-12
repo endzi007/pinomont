@@ -1,7 +1,7 @@
 import React from 'react';
 import { Drawer, MenuItem, RaisedButton, MuiThemeProvider  } from 'material-ui';
 import { style, keyframes, media} from 'typestyle';
-import PinomontLogo from '../../assets/images/pinomont.svg';
+import PinomontLogo from '../../assets/images/pinomontLogo.png';
 import SvgImage from './svgIcon';
 import styles from '../helperComponents/templateStyles';
 
@@ -11,62 +11,69 @@ export default ({show, handleClick, showDrawer}) =>{
         display: "flex",
         left: 0, 
         top: 0,
-        height: "70px",
-        padding: "20px",
+        paddingTop: "5px",
+        height: "40px",
         width: "100%",
-        borderBottom: `3px solid ${styles.primaryColor}`,
-        alignItems: "strech",
-        justifyContent: "space-between",
-        flex: 1,
-        backgroundColor: `${styles.darkBackgroundColor}`,
-        color: `${styles.lightText}`,
-        zIndex: "33",
-        transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
-    }
-);
-    const rightStyle = (left)=> style({
-        position: "fixed",
-        display: "flex",
         flexDirection: "column",
-        left: 0, 
-        top: 0,
-        height: "100vh",
-        padding: "20px",
-        width: "250px",
-        borderBottom: "3px solid blue",
-        alignItems: "strech",
-        justifyContent: "flex-start",
-        backgroundColor:`${styles.darkBackgroundColor}`,
-        color: `${styles.lightText}`,
-        zIndex: "33",
-        transform: `translateX(${left}px)`,
-        transition:"all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
-        });
+        alignItems: "center",
+        backgroundColor: `rgba(${styles.darkBackgroundColorRGB}, 0.9)`,
+        zIndex: "100",
+        transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
+    });
 
     const itemStyle = style({
         display: "flex",
+        padding: "10px",
         alignItems: "center",
-        justifySelf: "center",
-        marginLeft: "10px",
-        padding: "0 20px",
+        marginLeft: "20px",
         $nest:{
             "&:hover":{
                 cursor: "pointer"
             }
-        }},
-        media({maxWidth: 768},{
-            flexDirection: "column",
-            padding: "20px",
-        })
-    );
+        }
+    });
 
-    const rightNav = style({
+
+    const logoStyle = style({
+        zIndex: 2
+    });
+
+    const navigationItemsStyle = style({
+        position: "absolute",
+        top: "40px",
+        backgroundColor: `rgba(${styles.darkBackgroundColorRGB}, 0.9)`,
         display: "flex",
-        justifyContent: "space-arround",
-        flexDirection: show==="top"? "row": "column",
-    }
-);
+        width: "100%",
+        justifyContent: "space-around",
+        alignItems: "flex-end",
+        color: "white",
+        height: "60px",
+        padding: "0 20%",
+        borderBottom: `3px solid ${styles.secondaryColor}`
+    });
     return(
+        <div className={topStyle}>
+            <div className={logoStyle}>
+                <div style={{fontSize: "2em"}} onClick={handleClick.bind(null, "/")}><img style={{
+                    width: "200px", height: "auto"
+                }} src={PinomontLogo} alt="pinomont logo"/></div>
+            </div>
+            <div className={navigationItemsStyle}>
+                <div className={itemStyle} onClick={handleClick.bind(null, "/")}>Početna </div>
+                <div className={itemStyle} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
+                <div className={itemStyle} onClick={handleClick.bind(null, "/Contact")}>Kontakt</div>
+                <div className={itemStyle} onClick={()=>{
+                    manualTranslate();
+                }}>Srpski</div>
+                <div className={itemStyle} id="google_translate_element"></div>
+            </div>
+        </div>
+    );
+}
+
+
+
+/*
         <nav className={show==="top"? topStyle : rightStyle(showDrawer===true? 0: -250)}>
                 <div>
                     <div className={itemStyle} style={{fontSize: "2em"}} onClick={handleClick.bind(null, "/")}><img style={{
@@ -83,10 +90,9 @@ export default ({show, handleClick, showDrawer}) =>{
                     }}>Srpski</div>
                 </div>
         </nav>
-    );
-}
 
 
+*/
 
 //call google translate from this function rather then from automatic div
 // used for returning to default serbian language rather then displaying translate bar

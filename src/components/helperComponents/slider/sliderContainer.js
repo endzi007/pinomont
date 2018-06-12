@@ -86,9 +86,7 @@ class SliderContainer extends React.Component {
             });
             return(
                 <div className={sliderContainer}>
-                    <SliderArrow handleClick={this.handleClick.bind(this)} direction="left" />
                     {arrToRender}
-                    <SliderArrow handleClick={this.handleClick.bind(this)} direction="right" />
                 </div>
             );
         }

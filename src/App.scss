@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 @import './assets/css/font-awesome.css';
 @import url('https://fonts.googleapis.com/css?family=Arapey');
 
@@ -10,16 +10,24 @@
 }
 .third{
   color: "yellow!important";
+  
 }
-
 body{
-  font-family: "Rubick", sans-serif!important;
+  font-family: "Lobster", sans-serif!important;
   background-color:   #292621!important;
   overflow-x: hidden;
+  margin-top: 0!important;
 }
 h1, h2, h3, h4, h5, h6 {
-font-family: "Rubick", sans-serif;
-text-align: center;
+  font-family: "Lobster", sans-serif!important;
+  text-align: center!important;
+  font-weight: 100!important;
+}
+
+p, a{
+  font-family: "Lobster", sans-serif!important;
+  text-align: center;
+  font-weight: 100!important;
 }
 
 #projectsSectionContent{
@@ -35,7 +43,7 @@ text-align: center;
 .pageSection{
   width: 100%;
   background-color: white;
-  padding-top: 100px;
+  padding-top: 110px;
   padding-left: 10vw;
   padding-right: 10vw;
   padding-bottom: 50px;
@@ -146,11 +154,19 @@ hr {
   margin: 25px 0;
 }
 .goog-te-banner-frame{
+  top: -80px!important;
   display: none!important;
+  visibility: hidden!important;
+  opacity: 0;
+  z-index: 0;
 } 
 
 #goog-gt-tt{
+  top: -80px!important;
   display: none!important;
+  visibility: hidden!important;
+  opacity: 0;
+  z-index: 0;
 }
 
 

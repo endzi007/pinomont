@@ -67,19 +67,7 @@ export default ({ img, link, inProp})=>{
                     <div>
                         <div className={animationDiv}></div>
                         <div id="slideContent" className={slideContent}>
-                            <h3 
-                                style={{
-                                    marginTop: "100px", 
-                                    fontFamily: fontFam,
-                                    fontWeight: "100",
-                                    fontSize: "2em",
-                                    borderBottom: "1px solid white",
-                                    paddingBottom: "12px",
-                                    width: "260px",
-                                    alignSelf: "center"
-                                }}>
-                                Pinomont - Berane
-                            </h3>
+                            <h1></h1>
                             <h1 
                                 style={{
                                     fontFamily: fontFam,

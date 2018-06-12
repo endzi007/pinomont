@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
+import styles from '../helperComponents/templateStyles';
 
 
 const animationIn = keyframes({
@@ -48,6 +49,7 @@ class Category extends Component  {
                 height: "250px",
                 overflow: "hidden",
                 position: "relative",
+                border: `3px solid ${styles.darkBackgroundColor}`
              }))
     }
 
