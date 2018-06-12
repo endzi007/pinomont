@@ -37,7 +37,7 @@ class Footer extends Component {
                         <div className="item">
                             <i className="mail icon"></i>
                             <div className="content">
-                            <a href="mailto:jack@semantic-ui.com">pinomont1@gmail.com</a>
+                            <a href="mailto:pinomont1@gmail.com">pinomont1@gmail.com</a>
                             </div>
                         </div>
                         <div className="item">

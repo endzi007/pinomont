@@ -1,6 +1,7 @@
 import React from 'react';
 import Transition from 'react-transition-group/Transition';
 import { style, keyframes } from 'typestyle';
+import styles from '../../helperComponents/templateStyles';
 
 
 const defaultStyle = style({
@@ -16,10 +17,10 @@ const transitionStyles = {
 
 const panning = keyframes({
     "0%":{
-        transform: "translate(0, 0)"
+        transform: "translate(-9vw, -9vh)"
     },
     "100%":{
-        transform: "translate(100px, 100px)"
+        transform: "translate(0vw, 0vh)"
     }
 });
 
@@ -27,10 +28,10 @@ const panning = keyframes({
 export default ({ img, link, inProp})=>{
     const animationDiv = style({
         position: "absolute",
-        top: "-100px",
-        left: "-100px",
-        width: "110%",
-        height: "110%",
+        top: "0",
+        left: "0",
+        width: "110vw",
+        height: "110vh",
         animation: `${panning} 20s linear infinite`,
         animationDirection: "alternate",
         backgroundImage: `url(${img})`, 
@@ -75,7 +76,7 @@ export default ({ img, link, inProp})=>{
                                     fontWeight: "100",
                                     maxWidth: "50vw",
                                     alignSelf: "center",
-                                    fontSize: "3em"
+                                    fontSize: "3em",
                                 }}> 
                                 Najbolja auto kozmetika u Crnoj Gori. Uvoznik i distributer za Areon proizvode...
                             </h1>
