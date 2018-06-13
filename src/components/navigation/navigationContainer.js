@@ -30,7 +30,6 @@ class Navigation extends Component {
         super();
         this.state = {
             showDrawer: false,
-            windowSize: 0
         }
     }
 
@@ -46,7 +45,7 @@ class Navigation extends Component {
         }
         this.props.startPageTransition(true);
         this.toggleShowDrawer(false);
-
+        this.props.changeCurrentRoute(path);
         setTimeout(()=>{
             this.props.startPageTransition(false);
             this.props.history.push(path)
@@ -63,9 +62,18 @@ class Navigation extends Component {
     }
 
     render(){
+        const { currentRoute } = this.props.appConfig;
+        let activeLink;
+        if(currentRoute==="/"){
+            activeLink = "home";
+        } else if(currentRoute=== "/categories"){
+            activeLink = "categories"
+        } else if(currentRoute==="/Contact") {
+            activeLink = "contact"
+        }
         return(
             [
-                <TopMenu handleClick={this.handleClick.bind(this)} showDrawer={this.state.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
+                <TopMenu activeLink = {activeLink} handleClick={this.handleClick.bind(this)} showDrawer={this.state.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
                 <ToggleDrawer show={this.state.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
             ]
 

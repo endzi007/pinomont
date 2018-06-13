@@ -5,7 +5,7 @@ import PinomontLogo from '../../assets/images/pinomontLogo.png';
 import SvgImage from './svgIcon';
 import styles from '../helperComponents/templateStyles';
 
-export default ({show, handleClick, showDrawer}) =>{
+export default ({show, handleClick, showDrawer, activeLink}) =>{
     const topStyle = style({
         position: "fixed",
         display: "flex",
@@ -38,6 +38,10 @@ export default ({show, handleClick, showDrawer}) =>{
         zIndex: 2
     });
 
+    const active = style({
+        color: styles.secondaryColor
+    });
+    
     const navigationItemsStyle = style({
         position: "absolute",
         top: "40px",
@@ -59,9 +63,9 @@ export default ({show, handleClick, showDrawer}) =>{
                 }} src={PinomontLogo} alt="pinomont logo"/></div>
             </div>
             <div className={navigationItemsStyle}>
-                <div className={itemStyle} onClick={handleClick.bind(null, "/")}>Početna </div>
-                <div className={itemStyle} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
-                <div className={itemStyle} onClick={handleClick.bind(null, "/Contact")}>Kontakt</div>
+                <div className={`${itemStyle} ${activeLink==="home"? active: ""}`} onClick={handleClick.bind(null, "/")}>Početna </div>
+                <div className={`${itemStyle} ${activeLink==="categories"? active: ""}`} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
+                <div className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/Contact")}>Kontakt</div>
                 <div className={itemStyle} onClick={()=>{
                     manualTranslate();
                 }}>Srpski</div>

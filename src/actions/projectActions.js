@@ -64,3 +64,10 @@ export const fetchProducts = (url) =>{
         });
     }
 }
+
+export const changeCurrentRoute = (route) =>{
+    return  {
+        type: "CHANGE_CURRENT_ROUTE",
+        payload: route
+    }
+}

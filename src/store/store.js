@@ -9,19 +9,15 @@ const defaultState = {
     filterTags: [],
     appConfig: {
         pageTransition: false, //when true start page fade out animation 
-        transitionDuration: 500 //miliseconds
+        transitionDuration: 500, //miliseconds
+        currentRoute: ""
     },
     data: {
         categories: [],
         fetching: false,
         error: false
     },
-    styleConfig: {
-        primaryColor: "blue",
-        secondaryColor: "green",
-        thirdColor: "darkgray",
-        fourthColor: "whiteGray",
-    }
+
 }
 window.state = defaultState;
 const reducers = combineReducers({

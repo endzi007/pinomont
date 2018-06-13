@@ -52,13 +52,16 @@ export const categoriesReducer = (state = {
 
 export const appConfigReducer = (state = {
     pageTransition: false,
-    transitionDuration: 0.7
+    transitionDuration: 0.7,
+    currentRoute: ""
 }, action) =>{
     let newState = {...state};
     switch (action.type){
         case "START_PAGE_TRANSITION":
             newState.pageTransition = action.payload; 
             break;
+        case "CHANGE_CURRENT_ROUTE":
+            newState.currentRoute = action.payload;
         default:
             break;
     }
