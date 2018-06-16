@@ -66,10 +66,11 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
                 <div className={`${itemStyle} ${activeLink==="home"? active: ""}`} onClick={handleClick.bind(null, "/")}>Početna </div>
                 <div className={`${itemStyle} ${activeLink==="categories"? active: ""}`} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
                 <div className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/Contact")}>Kontakt</div>
-                <div className={itemStyle} onClick={()=>{
-                    manualTranslate();
-                }}>Srpski</div>
-                <div className={itemStyle} id="google_translate_element"></div>
+                <div className={itemStyle} id="google_translate_element">
+                    <div className={itemStyle} onClick={()=>{
+                        manualTranslate();
+                    }}>Srpski</div>
+                </div>
             </div>
         </div>
     );

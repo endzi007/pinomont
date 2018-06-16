@@ -23,6 +23,7 @@ import { Helmet } from 'react-helmet';
 class App extends React.Component {
   componentDidMount(){
     this.props.fetchCategories();
+    console.log(this.props);
   }
   render() {
     const homeTextAnim = animateComponent(HomeText);

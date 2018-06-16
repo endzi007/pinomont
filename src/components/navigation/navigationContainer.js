@@ -57,6 +57,7 @@ class Navigation extends Component {
         });
     }
     componentDidMount(){
+        this.props.changeCurrentRoute(this.props.location.pathname);
         window.addEventListener("resize", this.updateSize.bind(this));
         this.updateSize();
     }
