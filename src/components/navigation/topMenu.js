@@ -19,7 +19,7 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         backgroundColor: `rgba(${styles.darkBackgroundColorRGB}, 0.9)`,
         zIndex: "100",
         transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
-    });
+    }, media({maxWidth: 768},{height: "80px"}));
 
     const itemStyle = style({
         display: "flex",
@@ -54,7 +54,19 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         height: "60px",
         padding: "0 20%",
         borderBottom: `3px solid ${styles.secondaryColor}`
-    });
+    }, 
+    media({maxWidth: 768},{
+        position: "fixed",
+        width: "260px",
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        left: showDrawer=== true? "0px" : "-260px",
+        padding: 0,
+        alignItems: "center",
+        borderRight: `2px solid ${styles.primaryColor}`
+    })
+);
     return(
         <div className={topStyle}>
             <div className={logoStyle}>
