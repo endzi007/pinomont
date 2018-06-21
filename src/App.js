@@ -10,15 +10,12 @@ import Footer from './components/footer';
 import TransitionOverlay from './components/helperComponents/transitionOverlay';
 import ProductContainer from './components/products/productContainer';
 import FourOFour from './components/fourOFour';
-import { MuiThemeProvider } from 'material-ui'; 
 
 /*-----pages------*/
 import Contact from './components/contact/contact';
-import Projects from './components/project/categories';
 import HomeText from './components/home/homeText';
 import Categories from './components/project/categories';
 import { bindActionCreators } from 'redux';
-import { Helmet } from 'react-helmet';
 
 class App extends React.Component {
   componentDidMount(){

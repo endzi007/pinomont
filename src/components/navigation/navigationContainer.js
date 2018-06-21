@@ -64,12 +64,12 @@ class Navigation extends Component {
 
     render(){
         const { currentRoute } = this.props.appConfig;
-        let activeLink;
+        let activeLink = " ";
         if(currentRoute==="/"){
             activeLink = "home";
         } else if(currentRoute=== "/categories"){
             activeLink = "categories"
-        } else if(currentRoute==="/Contact") {
+        } else if(currentRoute==="/contact") {
             activeLink = "contact"
         }
         return(

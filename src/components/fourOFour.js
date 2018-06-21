@@ -1,5 +1,7 @@
 import React from 'react';
 
 export default ()=>(
-    <div>No page found!!</div>
+    <div className="pageSection">
+        <h1>No page found!!</h1>
+    </div>
 )

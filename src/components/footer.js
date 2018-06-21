@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { style } from 'typestyle';
 import styles from '../components/helperComponents/templateStyles';
-const defaultStyle = style({
-    border: "1px solid black"
 
+const itemStyle = style({
+    display: "inline-flex", 
+    justifySelf: "center",
+    paddingTop: "8px",
+    $nest: {
+        "div": {
+            marginLeft: "5px"
+        }
+    }
 });
-
 class Footer extends Component {
     render(){
         return(
-            <div style={{backgroundColor: "#292621", borderTop: `3px solid ${styles.primaryColor}`}} className="ui inverted vertical footer segment">
+            <div style={{backgroundColor: "#292621", borderTop: `3px solid ${styles.secondaryColor}`}} className="ui inverted vertical footer segment">
                 <div className="ui center aligned container">
                 <div className="ui stackable inverted divided grid">
                     <div className="five wide column">
@@ -29,18 +35,18 @@ class Footer extends Component {
                     </div>
                     <div className="five wide column">
                     <h4 className="ui inverted header">Kontakt informacije:</h4>
-                    <div className="ui inverted link list">
-                        <div className="item">
+                    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}} className="ui inverted link list">
+                        <div className={itemStyle}>
                             <i className="marker icon"></i>
                             <div className="content">VIII Crnogorske 4 - Berane</div>
                         </div>
-                        <div className="item">
+                        <div className={itemStyle}>
                             <i className="mail icon"></i>
                             <div className="content">
                             <a href="mailto:pinomont1@gmail.com">pinomont1@gmail.com</a>
                             </div>
                         </div>
-                        <div className="item">
+                        <div className={itemStyle}>
                             <i className="phone icon"></i>
                             <div className="content">068/333-333</div>
                         </div>

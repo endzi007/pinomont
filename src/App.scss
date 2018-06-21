@@ -20,6 +20,7 @@ body{
   position: fixed;
   top: 0!important;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Lobster", sans-serif!important;
   text-align: center!important;
@@ -162,7 +163,10 @@ hr {
   opacity: 0;
   z-index: 0;
 } 
-
+#google_translate_element{
+  visibility: hidden; 
+  opacity: 0;
+}
 #goog-gt-tt{
   top: -80px!important;
   display: none!important;

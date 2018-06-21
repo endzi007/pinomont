@@ -1,10 +1,9 @@
 import React from 'react';
-import { Drawer, MenuItem, RaisedButton, MuiThemeProvider  } from 'material-ui';
 import { style, keyframes, media} from 'typestyle';
 import PinomontLogo from '../../assets/images/pinomontLogo.png';
-import SvgImage from './svgIcon';
 import styles from '../helperComponents/templateStyles';
-
+import TranslateWidget from './translateWidget';
+import translateWidget from './translateWidget';
 export default ({show, handleClick, showDrawer, activeLink}) =>{
     const topStyle = style({
         position: "fixed",
@@ -40,7 +39,8 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
 
     const active = style({
         color: styles.secondaryColor
-    });
+    }, 
+    media({maxWidth: 768}, {color: styles.primaryColor}));
     
     const navigationItemsStyle = style({
         position: "absolute",
@@ -57,14 +57,21 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
     }, 
     media({maxWidth: 768},{
         position: "fixed",
+        top: "80px",
         width: "260px",
         height: "100vh",
+        maxHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         left: showDrawer=== true? "0px" : "-260px",
         padding: 0,
         alignItems: "center",
-        borderRight: `2px solid ${styles.primaryColor}`
+        justifyContent: "space-arround",
+        paddingTop: "200px",
+        paddingBottom: "200px",
+        transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)",
+        backgroundColor: styles.secondaryColor,
+        color: styles.darkBackgroundColor
     })
 );
     return(
@@ -77,13 +84,10 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
             <div className={navigationItemsStyle}>
                 <div className={`${itemStyle} ${activeLink==="home"? active: ""}`} onClick={handleClick.bind(null, "/")}>Početna </div>
                 <div className={`${itemStyle} ${activeLink==="categories"? active: ""}`} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
-                <div className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/Contact")}>Kontakt</div>
-                <div className={itemStyle} id="google_translate_element">
-                    <div className={itemStyle} onClick={()=>{
-                        manualTranslate();
-                    }}>Srpski</div>
-                </div>
+                <div className={`${itemStyle} ${activeLink===" "? active: ""}`} onClick={handleClick.bind(null, "/about")}>O nama</div>
+                <div className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/contact")}>Kontakt</div>
             </div>
+            <TranslateWidget />
         </div>
     );
 }
@@ -111,24 +115,5 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
 
 */
 
-//call google translate from this function rather then from automatic div
-// used for returning to default serbian language rather then displaying translate bar
-
-function manualTranslate () {
-  var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
-  if(!iframe) return;
-
-  var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-  var restore_el = innerDoc.getElementsByTagName("button");
-
-  for(var i = 0; i < restore_el.length; i++){
-    if(restore_el[i].id.indexOf("restore") >= 0) {
-      restore_el[i].click();
-      var close_el = innerDoc.getElementsByClassName("goog-close-link");
-      close_el[0].click();
-      return;
-    }
-  }
-}
 
 
