@@ -2,14 +2,14 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { categoriesReducer, filterReducer, appConfigReducer } from '../reducers/reducer';
 import ReduxThunk from 'redux-thunk' 
 import logger from 'redux-logger';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import * as fetchMiddlewares from '../middlewares/fetchApi'
+import appConfig from '../appConfig';
+
 
 const defaultState = { 
     filterTags: [],
     appConfig: {
-        pageTransition: false, //when true start page fade out animation 
-        transitionDuration: 500, //miliseconds
+        pageTransition: appConfig.pageTransition, //when true start page fade out animation 
+        transitionDuration: appConfig.transitionDuration, //miliseconds
         currentRoute: ""
     },
     data: {

@@ -9,6 +9,8 @@ import Navigation from './components/navigation/navigationContainer';
 import Footer from './components/footer';
 import TransitionOverlay from './components/helperComponents/transitionOverlay';
 import ProductContainer from './components/products/productContainer';
+import About from './components/about';
+
 import FourOFour from './components/fourOFour';
 
 /*-----pages------*/
@@ -39,6 +41,7 @@ class App extends React.Component {
                   <Route exact path="/categories" component={categoriesAnim}/>
                   <Route exact path="/contact" component={contactAnim}/>
                   <Route path={"/categories/:title"} component={ProductContainer} />
+                  <Route path={"/about"} component={About} />
                   <Route component={FourOFour} />
                 </Switch>,
                 <Footer />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { style, keyframes } from 'typestyle';
 import { connect } from 'react-redux';
-import PinomontLogo from '../../assets/images/pinomont.svg';
+import PinomontLogo from '../../assets/images/Pinomont.svg';
 
 const TransitionOverlay = (props)=>{
     const animationIn = keyframes({
