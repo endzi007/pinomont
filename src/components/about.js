@@ -2,7 +2,7 @@ import React from 'react';
 import { style } from 'typestyle';
 
 const wrapperStyle = style({
-    display: "flex",
+    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
     display: "-ms-flex",
     display: "-webkit-flex",
     flexDirection: "row",

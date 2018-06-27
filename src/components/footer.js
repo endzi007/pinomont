@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { style } from 'typestyle';
 import styles from '../components/helperComponents/templateStyles';
+import logoImage from '../assets/images/pinomont.svg';
 
 const itemStyle = style({
-    display: "inline-flex",
-    display: "-ms-inline-flex",
-    display: "-webkit-inline-flex",
+    "display": ["inline-flex","-ms-inline-flex", "-webkit-inline-flex"],
     justifySelf: "center",
     paddingTop: "8px",
     $nest: {
@@ -13,6 +12,13 @@ const itemStyle = style({
             marginLeft: "5px"
         }
     }
+});
+
+const contactInfo = style({
+    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"], 
+    flexDirection: "column", 
+    justifyContent: "center", 
+    "-webkit-box-align": "center",  "-moz-box-align": "center",  "-ms-flex-align": "center",  "-webkit-align-items": "center",  "align-items": "center"
 });
 class Footer extends Component {
     render(){
@@ -37,7 +43,7 @@ class Footer extends Component {
                     </div>
                     <div className="five wide column">
                     <h4 className="ui inverted header">Kontakt informacije:</h4>
-                    <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}} className="ui inverted link list">
+                    <div className={`${contactInfo} ui inverted link list`}>
                         <div className={itemStyle}>
                             <i className="marker icon"></i>
                             <div className="content">VIII Crnogorske 4 - Berane</div>
@@ -56,7 +62,7 @@ class Footer extends Component {
                     </div>
                 </div>
                 <div className="ui inverted section divider"></div>
-                <img src="assets/images/logo.png" className="ui centered mini image"/>
+                <img src={logoImage} className="ui centered mini image"/>
                 <div className="ui horizontal inverted small divided link list">
                     <a className="item" href="#">Kontaktirajte nas</a>
                     <a className="item" href="#">Pinomont doo - Sva prava zadržana</a>

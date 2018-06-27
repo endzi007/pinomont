@@ -7,7 +7,7 @@ import translateWidget from './translateWidget';
 export default ({show, handleClick, showDrawer, activeLink}) =>{
     const topStyle = style({
         position: "fixed",
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         display: "-ms-flex",
         display: "-webkit-flex",
         left: 0, 
@@ -16,18 +16,18 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         height: "40px",
         width: "100%",
         flexDirection: "column",
-        alignItems: "center",
+        "-webkit-box-align": "center",  "-moz-box-align": "center",  "-ms-flex-align": "center",  "-webkit-align-items": "center",  "align-items": "center",
         backgroundColor: `rgba(${styles.darkBackgroundColorRGB}, 0.9)`,
         zIndex: "100",
         transition: "all 450ms cubic-bezier(0.23, 1, 0.32, 1)"
     }, media({maxWidth: 768},{height: "80px"}));
 
     const itemStyle = style({
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         display: "-ms-flex",
         display: "-webkit-flex",
         padding: "10px",
-        alignItems: "center",
+        "-webkit-box-align": "center",  "-moz-box-align": "center",  "-ms-flex-align": "center",  "-webkit-align-items": "center",  "align-items": "center",
         marginLeft: "20px",
         $nest:{
             "&:hover":{
@@ -50,7 +50,7 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         position: "absolute",
         top: "40px",
         backgroundColor: `rgba(${styles.darkBackgroundColorRGB}, 0.9)`,
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         display: "-ms-flex",
         display: "-webkit-flex",
         width: "100%",
@@ -67,13 +67,13 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         width: "260px",
         height: "100vh",
         maxHeight: "100vh",
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         display: "-ms-flex",
         display: "-webkit-flex",
         flexDirection: "column",
         left: showDrawer=== true? "0px" : "-260px",
         padding: 0,
-        alignItems: "center",
+        "-webkit-box-align": "center",  "-moz-box-align": "center",  "-ms-flex-align": "center",  "-webkit-align-items": "center",  "align-items": "center",
         justifyContent: "space-arround",
         paddingTop: "200px",
         paddingBottom: "200px",

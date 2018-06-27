@@ -75,7 +75,7 @@ export default class extends React.Component{
     }
 
     languages = style({
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         flexDirection: "column"
     })
 

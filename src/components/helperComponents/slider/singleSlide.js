@@ -42,7 +42,7 @@ export default ({ img, link, inProp})=>{
         position: "absolute",
         height: "100%",
         width: "100%",
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         display: "-ms-flex",
         display: "-webkit-flex",
         flexDirection: "column",

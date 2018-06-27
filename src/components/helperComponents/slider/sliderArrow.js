@@ -11,7 +11,7 @@ const sliderIndicator = (prop)=>{
         height: "50px",
         width: "50px",
         overflow: "hidden",
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         display: "-ms-flex",
         display: "-webkit-flex",
         aligntItems: "center",
@@ -19,7 +19,7 @@ const sliderIndicator = (prop)=>{
         left: prop==="right"?"100%": "50px",
         transform: prop==="right" ? "translate(-100px, -50%)": "translateY(-50%)",
         backgroundColor: "rgba(0,0,0,0.5)",
-        alignItems: "center",
+        "-webkit-box-align": "center",  "-moz-box-align": "center",  "-ms-flex-align": "center",  "-webkit-align-items": "center",  "align-items": "center",
         zIndex: "10",
         $nest:{
             "&:hover":{

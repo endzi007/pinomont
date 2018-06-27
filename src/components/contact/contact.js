@@ -35,7 +35,7 @@ const wrapperStyle = style({
 });
 
 const contactInfo = style({
-    display: "flex",
+    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
     display: "-ms-flex",
     display: "-webkit-flex",
     flexDirection: "column",
@@ -50,7 +50,7 @@ const contactInfo = style({
 });
 
 const contactItem = style({
-    display: "flex",
+    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
     display: "-ms-flex",
     display: "-webkit-flex",
     justifyContent: "flex-start",

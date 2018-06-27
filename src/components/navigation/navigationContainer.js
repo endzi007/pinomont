@@ -1,31 +1,11 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { style } from "typestyle";
 import * as actions from '../../actions/projectActions'
-import NavigationDrawer from './navigationDrawer';
 import ToggleDrawer from './toggleDrawer';
 import TopMenu from './topMenu';
 
-
-var defaultStyle = style({
-    position: "absolute",
-    left: 0,
-    top: 0,
-    zIndex: 999,
-    display: "flex",
-    display: "-ms-flex",
-    display: "-webkit-flex",
-    $nest: {
-        "p": {
-            color: "white",
-            fontSize: "1em",
-            background: "lightgray"
-        }
-    }
-});
 
 class Navigation extends Component {
     constructor(){

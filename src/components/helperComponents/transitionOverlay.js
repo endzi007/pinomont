@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { style, keyframes } from 'typestyle';
 import { connect } from 'react-redux';
-import PinomontLogo from '../../assets/images/Pinomont.svg';
+import PinomontLogo from '../../assets/images/pinomont.svg';
 
 const TransitionOverlay = (props)=>{
     const animationIn = keyframes({
@@ -41,7 +41,7 @@ const TransitionOverlay = (props)=>{
         }
     });
     const defaultStyle = style({
-        zIndex: 100,
+        "z-index": 100,
         opacity: 0,
         position: "fixed",
         top: 0,
@@ -50,11 +50,11 @@ const TransitionOverlay = (props)=>{
         height: "100%",
         "-webkit-animation": `${props.show === true ? animationIn: animationOut} ${props.appConfig.transitionDuration}ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
         "animation": `${props.show === true ? animationIn: animationOut} ${props.appConfig.transitionDuration}ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
-        display: "flex",
-        display: "-ms-flex",
-        display: "-webkit-flex",
-        verticalAlign: "center",
-        backgroundColor: "white"
+        "display": "flex",
+        "display": "-ms-flex",
+        "display": "-webkit-flex",
+        "vertical-align": "center",
+        "background-color": "white"
     });
 
     const svgStyle = style({

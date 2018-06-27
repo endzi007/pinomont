@@ -95,7 +95,7 @@ const SvgImage = ({name, show})=>{
 
 const navItemStyle = style({
     borderBottom: "1px solid lightgray",
-    display: "flex",
+    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
     display: "-ms-flex",
     display: "-webkit-flex",
     flexDirection: "column",
@@ -119,7 +119,7 @@ const NavigationDrawer = ({show, handleClick}) =>{
         left: 0,
         zIndex: 3,
         backgroundColor: "white",
-        display: "flex",
+        display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         flexDirection: "column",
         textAlign: "center"
     });
