@@ -7,11 +7,13 @@ export const footerButton = style({
 
 export const modalBody = style({
     display: "grid",
+    display: "-ms-grid",
     gridTemplateColumns: "3fr 2fr",
     gridGap: "30px"
 },
     media({maxWidth: 768}, {
         display: "grid",
+        display: "-ms-grid",
         gridTemplateColumns: "1fr"
     })
 );

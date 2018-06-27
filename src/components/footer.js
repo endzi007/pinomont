@@ -3,7 +3,9 @@ import { style } from 'typestyle';
 import styles from '../components/helperComponents/templateStyles';
 
 const itemStyle = style({
-    display: "inline-flex", 
+    display: "inline-flex",
+    display: "-ms-inline-flex",
+    display: "-webkit-inline-flex",
     justifySelf: "center",
     paddingTop: "8px",
     $nest: {

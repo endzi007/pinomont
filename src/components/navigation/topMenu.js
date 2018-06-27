@@ -8,6 +8,8 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
     const topStyle = style({
         position: "fixed",
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         left: 0, 
         top: 0,
         paddingTop: "5px",
@@ -22,6 +24,8 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
 
     const itemStyle = style({
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         padding: "10px",
         alignItems: "center",
         marginLeft: "20px",
@@ -47,6 +51,8 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         top: "40px",
         backgroundColor: `rgba(${styles.darkBackgroundColorRGB}, 0.9)`,
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         width: "100%",
         justifyContent: "space-around",
         alignItems: "flex-end",
@@ -62,6 +68,8 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
         height: "100vh",
         maxHeight: "100vh",
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         flexDirection: "column",
         left: showDrawer=== true? "0px" : "-260px",
         padding: 0,

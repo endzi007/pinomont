@@ -3,9 +3,7 @@ import Category from './category';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
-import fetch from 'isomorphic-fetch';
 import { style } from 'typestyle';
-import styles from '../helperComponents/templateStyles';
 
 const mapStateToProps = (store) =>{
     return{
@@ -19,7 +17,7 @@ const mapDispatchToProps = (dispatch) =>{
 }
 
 const defaultStyle = style({
-    display: "grid",
+    display: ["grid", "-ms-grid"],
     gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
     gridGap: "20px",
     $nest: {

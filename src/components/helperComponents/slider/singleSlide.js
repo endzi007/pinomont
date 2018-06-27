@@ -43,6 +43,8 @@ export default ({ img, link, inProp})=>{
         height: "100%",
         width: "100%",
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         flexDirection: "column",
         color: "white",
         alignContent: "center",

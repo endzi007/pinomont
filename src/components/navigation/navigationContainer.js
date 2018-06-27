@@ -16,6 +16,8 @@ var defaultStyle = style({
     top: 0,
     zIndex: 999,
     display: "flex",
+    display: "-ms-flex",
+    display: "-webkit-flex",
     $nest: {
         "p": {
             color: "white",

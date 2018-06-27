@@ -51,6 +51,8 @@ const TransitionOverlay = (props)=>{
         "-webkit-animation": `${props.show === true ? animationIn: animationOut} ${props.appConfig.transitionDuration}ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
         "animation": `${props.show === true ? animationIn: animationOut} ${props.appConfig.transitionDuration}ms cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         verticalAlign: "center",
         backgroundColor: "white"
     });

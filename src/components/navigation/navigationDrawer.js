@@ -96,6 +96,8 @@ const SvgImage = ({name, show})=>{
 const navItemStyle = style({
     borderBottom: "1px solid lightgray",
     display: "flex",
+    display: "-ms-flex",
+    display: "-webkit-flex",
     flexDirection: "column",
     color: "#292621",
     $nest: {

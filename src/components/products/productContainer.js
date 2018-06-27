@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) =>{
 }
 
 const defaultStyle = style({
-    display: "grid",
+    display: ["grid", "-ms-grid"],
     gridTemplateColumns: "repeat(auto-fill, minmax(170px, 1fr))",
     gridGap: "20px",
     $nest: {

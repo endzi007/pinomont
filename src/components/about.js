@@ -3,6 +3,8 @@ import { style } from 'typestyle';
 
 const wrapperStyle = style({
     display: "flex",
+    display: "-ms-flex",
+    display: "-webkit-flex",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignContent: "flex-start",

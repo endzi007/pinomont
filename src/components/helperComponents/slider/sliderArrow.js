@@ -12,6 +12,8 @@ const sliderIndicator = (prop)=>{
         width: "50px",
         overflow: "hidden",
         display: "flex",
+        display: "-ms-flex",
+        display: "-webkit-flex",
         aligntItems: "center",
         justifyItems: "center",
         left: prop==="right"?"100%": "50px",

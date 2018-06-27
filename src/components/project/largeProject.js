@@ -8,12 +8,14 @@ const footerButton = style({
 });
 
 const modalBody = style({
+    display: "-ms-grid",
     display: "grid",
     gridTemplateColumns: "3fr 2fr",
     gridGap: "30px"
 },
     media({maxWidth: 768}, {
         display: "grid",
+        display: "-ms-grid",
         gridTemplateColumns: "1fr"
     })
 );
@@ -44,9 +46,7 @@ const modalSize = style(
 );
 
 const LargeProject = ({
-    tags, 
     title,
-    id,
     url, 
     picture, 
     show,
