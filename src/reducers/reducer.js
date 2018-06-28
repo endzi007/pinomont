@@ -53,7 +53,8 @@ export const categoriesReducer = (state = {
 export const appConfigReducer = (state = {
     pageTransition: false,
     transitionDuration: 0.7,
-    currentRoute: ""
+    currentRoute: "",
+    showDrawer: false
 }, action) =>{
     let newState = {...state};
     switch (action.type){
@@ -62,6 +63,10 @@ export const appConfigReducer = (state = {
             break;
         case "CHANGE_CURRENT_ROUTE":
             newState.currentRoute = action.payload;
+            break;
+        case "TOGGLE_SHOW_DRAWER": 
+            newState.showDrawer = action.payload;
+            break;
         default:
             break;
     }

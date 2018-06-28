@@ -3,7 +3,7 @@ import Category from './category';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
-import { style } from 'typestyle';
+import { style, media } from 'typestyle';
 
 const mapStateToProps = (store) =>{
     return{
@@ -26,7 +26,13 @@ const defaultStyle = style({
           }
     }
     
-});
+}, media({maxWidth: 768},{
+    display: ["grid", "-ms-grid"],
+    gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+    gridGap: "10px",
+    gridTemplateRows: "auto"
+    })
+);
 
 
 class Categories extends Component {
@@ -43,7 +49,7 @@ class Categories extends Component {
             <div id="projectsSection"  className="pageSection">
                 <h1>Kategorije proizvoda:</h1>
                 <hr/>
-                <div className={defaultStyle} id="projectsSectionContent">
+                <div className={defaultStyle}>
                     {projectsToRender}
                 </div>
             </div>

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import * as actions from '../actions/projectActions';
+import { bindActionCreators } from 'redux';
 import { style } from 'typestyle';
 import styles from '../components/helperComponents/templateStyles';
 import logoImage from '../assets/images/pinomont.svg';
+import appConfig from '../appConfig';
 
 const itemStyle = style({
     "display": ["inline-flex","-ms-inline-flex", "-webkit-inline-flex"],
@@ -21,7 +26,21 @@ const contactInfo = style({
     "-webkit-box-align": "center",  "-moz-box-align": "center",  "-ms-flex-align": "center",  "-webkit-align-items": "center",  "align-items": "center"
 });
 class Footer extends Component {
+    handleClick(path){
+        if (this.props.history.location.pathname === path){
+            return;
+        }
+        this.props.toggleShowDrawer(false);
+        this.props.startPageTransition(true);
+        this.props.changeCurrentRoute(path);
+        setTimeout(()=>{
+            this.props.startPageTransition(false);
+            this.props.history.push(path)
+        }, this.props.appConfig.transitionDuration);
+    }
     render(){
+        let d = new Date();
+        let year = d.getFullYear();
         return(
             <div style={{backgroundColor: "#292621", borderTop: `3px solid ${styles.secondaryColor}`}} className="ui inverted vertical footer segment">
                 <div className="ui center aligned container">
@@ -35,10 +54,10 @@ class Footer extends Component {
                     <div className="five wide column">
                     <h4 className="ui inverted header">Stranice</h4>
                     <div className="ui inverted link list">
-                        <a href="#" className="item">Početna</a>
-                        <a href="#" className="item">Kategorije</a>
-                        <a href="#" className="item">O nama</a>
-                        <a href="#" className="item">Kontakt</a>
+                        <div onClick={this.handleClick.bind(this, "/")} className="item">Početna</div>
+                        <div onClick={this.handleClick.bind(this, "/categories")} className="item">Kategorije</div>
+                        <div onClick={this.handleClick.bind(this, "/about")} className="item">O nama</div>
+                        <div onClick={this.handleClick.bind(this, "/contact")} className="item">Kontakt</div>
                     </div>
                     </div>
                     <div className="five wide column">
@@ -46,17 +65,17 @@ class Footer extends Component {
                     <div className={`${contactInfo} ui inverted link list`}>
                         <div className={itemStyle}>
                             <i className="marker icon"></i>
-                            <div className="content">VIII Crnogorske 4 - Berane</div>
+                            <div className="content">{appConfig.contactInfo.address}</div>
                         </div>
                         <div className={itemStyle}>
                             <i className="mail icon"></i>
                             <div className="content">
-                            <a href="mailto:pinomont1@gmail.com">pinomont1@gmail.com</a>
+                            <a href="mailto:pinomont1@gmail.com">{appConfig.contactInfo.email}</a>
                             </div>
                         </div>
                         <div className={itemStyle}>
                             <i className="phone icon"></i>
-                            <div className="content">068/333-333</div>
+                            <div className="content">{appConfig.contactInfo.phone}</div>
                         </div>
                     </div>
                     </div>
@@ -64,8 +83,8 @@ class Footer extends Component {
                 <div className="ui inverted section divider"></div>
                 <img src={logoImage} className="ui centered mini image"/>
                 <div className="ui horizontal inverted small divided link list">
-                    <a className="item" href="#">Kontaktirajte nas</a>
-                    <a className="item" href="#">Pinomont doo - Sva prava zadržana</a>
+                    <span className="item">{`Pinomont doo - Sva prava zadržana - ${year}`}</span>
+                    <span className="item">Developed by: <a style={{fontSize: "1em"}}href="http://www.enisjasarovic.me" target="_blank">Endzi007</a></span>
                 </div>
                 </div>
             </div>
@@ -73,4 +92,14 @@ class Footer extends Component {
     }
 }
 
-export default Footer;
+function mapStateToProps (store){
+    return {
+        appConfig: store.appConfig
+    }
+}
+
+function mapDispatchToProps (dispatch){
+    return bindActionCreators(actions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Footer));

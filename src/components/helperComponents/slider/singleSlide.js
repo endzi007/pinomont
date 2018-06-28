@@ -1,6 +1,6 @@
 import React from 'react';
 import Transition from 'react-transition-group/Transition';
-import { style, keyframes } from 'typestyle';
+import { style, keyframes, media } from 'typestyle';
 import styles from '../../helperComponents/templateStyles';
 
 
@@ -62,6 +62,18 @@ export default ({ img, link, inProp})=>{
         });
     const fontFam = "Arapey, Georgia, Times, Times New Roman, serif";
     const timeout = 500;
+
+    const mainHeading = style({
+        fontFamily: fontFam,
+        fontStretch: "extra-expanded",
+        fontWeight: "100",
+        maxWidth: "50vw",
+        alignSelf: "center",
+        fontSize: "3em",
+    }, 
+    media({maxWidth:768 },{
+        fontSize: "1.5em"
+    }));
     return(
         <Transition in={inProp} timeout={timeout}>
         {(state)=>{
@@ -71,15 +83,7 @@ export default ({ img, link, inProp})=>{
                         <div className={animationDiv}></div>
                         <div id="slideContent" className={slideContent}>
                             <h1></h1>
-                            <h1 
-                                style={{
-                                    fontFamily: fontFam,
-                                    fontStretch: "extra-expanded",
-                                    fontWeight: "100",
-                                    maxWidth: "50vw",
-                                    alignSelf: "center",
-                                    fontSize: "3em",
-                                }}> 
+                            <h1 className={mainHeading}> 
                                 Najbolja auto kozmetika u Crnoj Gori. Uvoznik i distributer za Areon proizvode...
                             </h1>
                             <h2 style={{marginBottom: "50px", fontFamily: fontFam, fontWeight: "100",}}><a href={link}>Pogledaj još..</a></h2>

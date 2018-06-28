@@ -10,7 +10,8 @@ const defaultState = {
     appConfig: {
         pageTransition: appConfig.pageTransition, //when true start page fade out animation 
         transitionDuration: appConfig.transitionDuration, //miliseconds
-        currentRoute: ""
+        currentRoute: "",
+        showDrawer: false
     },
     data: {
         categories: [],

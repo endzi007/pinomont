@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { style } from 'typestyle';
+import { style, media } from 'typestyle';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import appConfig from '../../appConfig';
 
@@ -32,7 +32,12 @@ const wrapperStyle = style({
     display: "grid",
     gridTemplateColumns: "1fr 1fr",
     gridGap: "30px"
-});
+}, 
+    media({maxWidth: 768},{
+        gridTemplateColumns: "1fr",
+        gridGap: "0", 
+    })
+);
 
 const contactInfo = style({
     display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
@@ -100,16 +105,15 @@ class Contact extends Component {
                 <div className={contactInfo}>
                     <h2> Kontaktirajte nas </h2>
                     <hr/>
-                    <div className={contactItem}>{place}<span>Address: ul. Miljana Tomičića bb. Berane - Crna Gora</span></div>
-                    <div className={contactItem}>{emailSvg}<span>Email: pinomont@areon.me </span> </div>
-                    <div className={contactItem}>{phone}<span>Telefon: +382(68)070-133</span></div>
+                    <div className={contactItem}>{place}<span>{`Adresa: ${appConfig.contactInfo.address}`}</span></div>
+                    <div className={contactItem}>{emailSvg}<span>{`Email: ${appConfig.contactInfo.email}`}</span> </div>
+                    <div className={contactItem}>{phone}<span>{`Telefon: ${appConfig.contactInfo.phone}`}</span></div>
                     <div className={contactItem}>{social} <span>{facebook}</span></div>
                 </div>
-                <div style={{padding: "30px", position: "relative"}}>
+                <div style={{position: "relative", minHeight: "300px", height: "auto"}}>
                 <h2> Kako do nas? </h2>
                 <Map 
                     google={this.props.google} 
-                    style={{width: "100%", height: "90%"}} 
                     zoom={16}
                     initialCenter={{
                         lat: 42.853845,

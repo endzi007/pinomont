@@ -71,3 +71,10 @@ export const changeCurrentRoute = (route) =>{
         payload: route
     }
 }
+
+export const toggleShowDrawer = (show) =>{
+    return  {
+        type: "TOGGLE_SHOW_DRAWER",
+        payload: show
+    }
+}

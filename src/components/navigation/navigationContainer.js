@@ -16,9 +16,7 @@ class Navigation extends Component {
     }
 
     toggleShowDrawer(show){
-        this.setState({
-            showDrawer: show
-        });
+        this.props.toggleShowDrawer(show);
     }
 
     handleClick(path){
@@ -26,7 +24,7 @@ class Navigation extends Component {
             return;
         }
         this.props.startPageTransition(true);
-        this.toggleShowDrawer(false);
+        this.props.toggleShowDrawer(false);
         this.props.changeCurrentRoute(path);
         setTimeout(()=>{
             this.props.startPageTransition(false);
@@ -56,8 +54,8 @@ class Navigation extends Component {
         }
         return(
             [
-                <TopMenu activeLink = {activeLink} handleClick={this.handleClick.bind(this)} showDrawer={this.state.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
-                <ToggleDrawer show={this.state.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
+                <TopMenu activeLink = {activeLink} handleClick={this.handleClick.bind(this)} showDrawer={this.props.appConfig.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
+                <ToggleDrawer show={this.props.appConfig.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
             ]
 
         );
