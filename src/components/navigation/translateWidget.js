@@ -48,6 +48,7 @@ export default class extends React.Component{
     }
 
     translateOnClick = (lang, lang2)=>{
+        
         if(lang2 !== null){
             this.setState({
                 current: this.state.all[lang2]
@@ -57,6 +58,7 @@ export default class extends React.Component{
                 current: this.state.all[lang]
             });
         }
+        this.setStorageKey(lang);
         if(lang === "Serbian"){
           this.manualTranslate();
           return;
@@ -73,7 +75,9 @@ export default class extends React.Component{
         }
        en[counter].click();
     }
-
+    setStorageKey(lang){
+        localStorage.setItem("language", lang);
+    }
     languages = style({
         display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
         flexDirection: "column"
@@ -102,6 +106,15 @@ export default class extends React.Component{
         this.setState({
             showLanguages: false
         });
+    }
+
+    componentDidMount(){
+        let curr = localStorage.getItem("language");
+        if(curr !== null ){
+            this.setState({
+                current: this.state.all[curr]
+            });
+        }
     }
     render(){
         return (

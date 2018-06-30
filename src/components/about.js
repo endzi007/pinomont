@@ -1,5 +1,5 @@
 import React from 'react';
-import { style } from 'typestyle';
+import { style, media} from 'typestyle';
 
 const wrapperStyle = style({
     display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
@@ -16,7 +16,10 @@ const wrapperStyle = style({
             padding: "20px"
         }
     }
-});
+},  media({maxWidth: 768},{
+        flexDirection: "column"
+    })
+);
 
 
 export default ()=>{

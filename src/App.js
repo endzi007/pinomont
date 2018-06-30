@@ -21,7 +21,9 @@ import { bindActionCreators } from 'redux';
 
 class App extends React.Component {
   componentDidMount(){
-    this.props.fetchCategories();
+    this.props.fetchCategories().then(()=>{
+      console.log(this.props);
+    });
   }
   render() {
     return (
