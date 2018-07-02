@@ -90,10 +90,10 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
                 }} src={PinomontLogo} alt="pinomont logo"/></div>
             </div>
             <div className={navigationItemsStyle}>
-                <div className={`${itemStyle} ${activeLink==="home"? active: ""}`} onClick={handleClick.bind(null, "/")}>Početna </div>
-                <div className={`${itemStyle} ${activeLink==="categories"? active: ""}`} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
-                <div className={`${itemStyle} ${activeLink===" "? active: ""}`} onClick={handleClick.bind(null, "/about")}>O nama</div>
-                <div className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/contact")}>Kontakt</div>
+                <div key="topMany_link_početna" className={`${itemStyle} ${activeLink==="home"? active: ""}`} onClick={handleClick.bind(null, "/")}>Početna </div>
+                <div key="topMany_link_categories"className={`${itemStyle} ${activeLink==="categories"? active: ""}`} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
+                <div key="topMany_link_about" className={`${itemStyle} ${activeLink===" "? active: ""}`} onClick={handleClick.bind(null, "/about")}>O nama</div>
+                <div key="topMany_link_contact"className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/contact")}>Kontakt</div>
             </div>
             <TranslateWidget />
         </div>

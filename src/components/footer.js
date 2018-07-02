@@ -34,6 +34,7 @@ class Footer extends Component {
         this.props.startPageTransition(true);
         this.props.changeCurrentRoute(path);
         setTimeout(()=>{
+            window.scrollTo(0,0);
             this.props.startPageTransition(false);
             this.props.history.push(path)
         }, this.props.appConfig.transitionDuration);

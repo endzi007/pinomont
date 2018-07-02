@@ -109,18 +109,25 @@ export default class extends React.Component{
     }
 
     componentDidMount(){
-        let curr = localStorage.getItem("language");
-        if(curr !== null ){
+        try{
+            let curr = localStorage.getItem("language");
+            if(curr !== null ){
+                this.setState({
+                    current: this.state.all[curr]
+                });
+            }
+        } catch(e){
+            console.log(e);
             this.setState({
-                current: this.state.all[curr]
+                current: this.state.all[0]
             });
         }
     }
     render(){
         return (
             [
-                <div id="google_translate_element"></div>,
-                <div onMouseLeave={this.handleLeave.bind(this)} style={{
+                <div key="tw1" id="google_translate_element"></div>,
+                <div key="tw2"onMouseLeave={this.handleLeave.bind(this)} style={{
                     position: "absolute",
                     top: "30px",
                     right: "20px",

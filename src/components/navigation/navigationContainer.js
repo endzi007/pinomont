@@ -27,6 +27,7 @@ class Navigation extends Component {
         this.props.toggleShowDrawer(false);
         this.props.changeCurrentRoute(path);
         setTimeout(()=>{
+            window.scrollTo(0,0);
             this.props.startPageTransition(false);
             this.props.history.push(path)
         }, this.props.appConfig.transitionDuration);
@@ -54,8 +55,8 @@ class Navigation extends Component {
         }
         return(
             [
-                <TopMenu activeLink = {activeLink} handleClick={this.handleClick.bind(this)} showDrawer={this.props.appConfig.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
-                <ToggleDrawer show={this.props.appConfig.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
+                <TopMenu key= "topMenu_key"activeLink = {activeLink} handleClick={this.handleClick.bind(this)} showDrawer={this.props.appConfig.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
+                <ToggleDrawer key ="toggleDrawer_key" show={this.props.appConfig.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
             ]
 
         );

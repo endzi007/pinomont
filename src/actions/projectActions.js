@@ -13,6 +13,17 @@ export const startPageTransition = (start) => {
     }
 }
 
+export const getLSCategories = (data) =>{
+    let temp = data.map((cat)=>{
+        return {title: cat.title, featured_image: cat.featured_image, posts: "", hover: `${cat.featured_image.substr(0, cat.featured_image.length-4)}-3.jpg`}
+    });
+    return {
+        type: "FETCH_CATEGORIES_OK", 
+        payload: temp
+    };
+}
+
+
 export const fetchCategories = () =>{
     return (dispatch, getState)=>{
         dispatch({type: "FETCH_CATEGORIES_START"});
@@ -22,12 +33,36 @@ export const fetchCategories = () =>{
             let temp = parsedData.posts.map((cat)=>{
                 return {title: cat.title, featured_image: cat.featured_image, posts: "", hover: `${cat.featured_image.substr(0, cat.featured_image.length-4)}-3.jpg`}
             });
+            localStorage.setItem("categories", JSON.stringify(temp));
             dispatch({type: "FETCH_CATEGORIES_OK", payload: temp})
         }).catch((e)=>{
             dispatch({
                 type: "FETCH_CATEGORIES_BAD"
             })
         });
+    }
+}
+
+export const getLSProducts = (title, data) =>{
+    return (dispatch, getState) =>{
+        let index;
+        let categories = getState().data.categories;
+        let cur; 
+        categories.map((cat, i)=>{
+            cur = cat.title.split(" ").join("_");
+            if(cur === title ) {
+                index = i;
+                return 
+            }
+        });
+
+        dispatch({
+            type: "FETCH_PRODUCTS_OK",
+            payload: {
+                index: index,
+                posts: data
+            }
+        })
     }
 }
 
@@ -49,6 +84,7 @@ export const fetchProducts = (url) =>{
                     return 
                 }
             });
+            localStorage.setItem(url, JSON.stringify(parsedData.posts));
             dispatch({
                 type: "FETCH_PRODUCTS_OK",
                 payload: {
@@ -78,3 +114,4 @@ export const toggleShowDrawer = (show) =>{
         payload: show
     }
 }
+
