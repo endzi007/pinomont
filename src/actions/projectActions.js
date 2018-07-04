@@ -13,16 +13,42 @@ export const startPageTransition = (start) => {
     }
 }
 
-export const getLSCategories = (data) =>{
-    let temp = data.map((cat)=>{
-        return {title: cat.title, featured_image: cat.featured_image, posts: "", hover: `${cat.featured_image.substr(0, cat.featured_image.length-4)}-3.jpg`}
-    });
-    return {
-        type: "FETCH_CATEGORIES_OK", 
-        payload: temp
-    };
+export const checkLSCategories = () =>{
+    return (displatch, getState)=>{
+        return new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                try {            
+                    let lsCategories = JSON.parse(localStorage.getItem("categories"));
+                    console.log(lsCategories);
+                    if(lsCategories !== null){
+                        let temp = lsCategories.map((cat)=>{
+                            return {title: cat.title, featured_image: cat.featured_image, posts: "", hover: `${cat.featured_image.substr(0, cat.featured_image.length-4)}-3.jpg`}
+                        });
+                        resolve({
+                            type: "LS_CATEGORIES_OK", 
+                            payload: temp
+                        });
+                    } else { 
+                        console.log("bad");
+                        resolve({
+                            type: "LS_CATEGORIES_BAD", 
+                            payload: null
+                        });
+                    }
+                } catch (e){
+                    reject("LS_CATEGORIES_BAD");
+                }
+                }, 0);
+        });
+    }
 }
 
+export const getLSCategories = (data)=>{
+    return {
+        type: "GET_LS_CATEGORIES",
+        payload: data
+    }
+}
 
 export const fetchCategories = () =>{
     return (dispatch, getState)=>{
@@ -33,7 +59,11 @@ export const fetchCategories = () =>{
             let temp = parsedData.posts.map((cat)=>{
                 return {title: cat.title, featured_image: cat.featured_image, posts: "", hover: `${cat.featured_image.substr(0, cat.featured_image.length-4)}-3.jpg`}
             });
-            localStorage.setItem("categories", JSON.stringify(temp));
+            try{
+                localStorage.setItem("categories", JSON.stringify(temp));
+            } catch (e) {
+                console.log("unable to set to ls");
+            }
             dispatch({type: "FETCH_CATEGORIES_OK", payload: temp})
         }).catch((e)=>{
             dispatch({
@@ -83,8 +113,12 @@ export const fetchProducts = (url) =>{
                     index = i;
                     return 
                 }
-            });
-            localStorage.setItem(url, JSON.stringify(parsedData.posts));
+            }); 
+            try {
+                localStorage.setItem(url, JSON.stringify(parsedData.posts));
+            } catch(e){
+                console.log("e", e);
+            }
             dispatch({
                 type: "FETCH_PRODUCTS_OK",
                 payload: {

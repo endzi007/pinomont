@@ -42,6 +42,9 @@ export const categoriesReducer = (state = {
         case "FETCH_PRODUCTS_ERROR": 
             newState.error = action.payload;
             break;
+        case "GET_LS_CATEGORIES":
+            newState.categories = action.payload;
+            break;
         default: 
         break;
     }

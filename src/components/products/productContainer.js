@@ -45,16 +45,44 @@ class Projects extends Component {
         this.setState({
             title: title
         });
-        this.props.fetchCategories().then(()=>{
-            this.props.fetchProducts(this.props.match.params.title).then(()=>{
-                let content = this.props.data.categories.filter((cat)=>{
-                    return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+        this.props.checkLSCategories().then((obj)=>{
+            if(obj.type !== "LS_CATEGORIES_OK"){
+                this.props.getLSCategories();
+                this.props.fetchProducts(this.props.match.params.title).then(()=>{
+                    console.log("categories", this.props.data.categories);
+                    let content = this.props.data.categories.filter((cat)=>{
+                        return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+                    });
+                    this.setState({posts: content[0].posts}, ()=>{
+                        this.props.startPageTransition(false);
+                    });
+                })
+              } else {
+                this.props.fetchCategories().then(()=>{
+                    this.props.fetchProducts(this.props.match.params.title).then(()=>{
+                        let content = this.props.data.categories.filter((cat)=>{
+                            return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+                        });
+                        this.setState({posts: content[0].posts}, ()=>{
+                            this.props.startPageTransition(false);
+                        });
+                    })
                 });
-                this.setState({posts: content[0].posts}, ()=>{
-                    this.props.startPageTransition(false);
+              }
+        }).catch((e)=>{
+            if(e==="LS_CATEGORIES_BAD"){
+                this.props.fetchCategories().then(()=>{
+                    this.props.fetchProducts(this.props.match.params.title).then(()=>{
+                        let content = this.props.data.categories.filter((cat)=>{
+                            return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+                        });
+                        this.setState({posts: content[0].posts}, ()=>{
+                            this.props.startPageTransition(false);
+                        });
+                    })
                 });
-            })
-        })
+            }
+        });
     } 
     render(){
 

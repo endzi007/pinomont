@@ -21,8 +21,18 @@ import { bindActionCreators } from 'redux';
 
 class App extends React.Component {
   componentDidMount(){
-    this.props.fetchCategories().then(()=>{
-      console.log(this.props);
+    this.props.checkLSCategories().then((obj)=>{
+      if(obj.type === "LS_CATEGORIES_OK"){
+        this.props.getLSCategories(obj.payload);
+      } else {
+        this.props.fetchCategories();
+      }
+    }).catch((e)=>{
+      if (e === "LS_CATEGORIES_BAD"){
+        this.props.fetchCategories(); 
+      } else {
+        console.log(e);
+      }
     });
   }
   render() {
