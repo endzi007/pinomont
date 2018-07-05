@@ -20,20 +20,19 @@ import HomeText from './components/home/homeText';
 import { bindActionCreators } from 'redux';
 
 class App extends React.Component {
+
+  async fetchData (){
+    this.props.fetching(true);
+    let lsCategories = await this.props.checkLSCategories();
+    if(lsCategories.type === "LS_CATEGORIES_OK"){
+      await this.props.getLSCategories(lsCategories.payload);
+    } else {
+      await this.props.fetchCategories()
+    }
+    this.props.fetching(false);
+  }
   componentDidMount(){
-    this.props.checkLSCategories().then((obj)=>{
-      if(obj.type === "LS_CATEGORIES_OK"){
-        this.props.getLSCategories(obj.payload);
-      } else {
-        this.props.fetchCategories();
-      }
-    }).catch((e)=>{
-      if (e === "LS_CATEGORIES_BAD"){
-        this.props.fetchCategories(); 
-      } else {
-        console.log(e);
-      }
-    });
+    this.fetchData();
   }
   render() {
     return (

@@ -54,7 +54,8 @@ const TransitionOverlay = (props)=>{
         "display": "-ms-flex",
         "display": "-webkit-flex",
         "vertical-align": "center",
-        "background-color": "white"
+        "background-color": "white",
+        overflow: "hidden"
     });
 
     const svgStyle = style({

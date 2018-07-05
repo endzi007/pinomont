@@ -1,10 +1,9 @@
 import React from 'react';
 import { style, media} from 'typestyle';
+import pinomontLogo from '../assets/images/pinomont.svg';
 
 const wrapperStyle = style({
     display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
-    display: "-ms-flex",
-    display: "-webkit-flex",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignContent: "flex-start",
@@ -13,7 +12,8 @@ const wrapperStyle = style({
             textAlign: "left!important",
             flexGrow: "1",
             flexBasis: "0",
-            padding: "20px"
+            padding: "20px",
+            minWidth: "300px"
         }
     }
 },  media({maxWidth: 768},{
@@ -21,6 +21,14 @@ const wrapperStyle = style({
     })
 );
 
+const logoDiv = style({
+    backgroundColor: "white",
+    borderRadius: "7px",
+    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
+    alignContent: "center",
+    flexDirection: "column",
+    justifyContent: "center"
+});
 
 export default ()=>{
     return(
@@ -35,7 +43,9 @@ export default ()=>{
                     Širok asortiman proizvoda, niske cijene, brzina i efikasnost su aspekti na kojima je stavljen akcenat poslovanja naše firme. 
                 </p>
             </div>
-            <div>Galerija</div>
+            <div className={logoDiv}>
+                <img src={pinomontLogo} alt="pinomont logo " />
+            </div>
         </div>
     );
 }
