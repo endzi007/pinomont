@@ -58,7 +58,7 @@ export default class extends React.Component{
                 current: this.state.all[lang]
             });
         }
-        this.setStorageKey(lang);
+        this.setStorageKey(lang, lang2);
         if(lang === "Serbian"){
           this.manualTranslate();
           return;
@@ -75,8 +75,16 @@ export default class extends React.Component{
         }
        en[counter].click();
     }
-    setStorageKey(lang){
-        localStorage.setItem("language", lang);
+    setStorageKey(lang, lang2){
+        try{
+            if(lang2 !==null){
+                localStorage.setItem("language", lang2);
+            } else {
+                localStorage.setItem("language", lang);
+            }
+        } catch(e){
+            console.log(e);
+        }
     }
     languages = style({
         display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
@@ -117,7 +125,6 @@ export default class extends React.Component{
                 });
             }
         } catch(e){
-            console.log(e);
             this.setState({
                 current: this.state.all[0]
             });
@@ -135,7 +142,7 @@ export default class extends React.Component{
                     
                 }}>
                 <div className={this.lang}><img onClick={this.handleHover.bind(this)}src={this.state.current}/></div>
-                <div className={this.languages} style={{opacity: this.state.showLanguages===true? 1: 0}}>
+                <div className={this.languages} style={{visibility: this.state.showLanguages===true? "visible": "hidden"}}>
                     <div className={this.lang} onClick={this.translateOnClick.bind(this, "Serbian", "Montenegrian")}><img src={montenegrian} alt="montenegrian"/></div>
                     <div className={this.lang} onClick={this.translateOnClick.bind(this, "Serbian", null)}><img src={serbian} alt="serbian"/></div>
                     <div className={this.lang} onClick={this.translateOnClick.bind(this, "English", null)}><img src={english} alt="english"/></div>

@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
-import fetch from 'isomorphic-fetch';
-import { style } from 'typestyle';
-import { withRouter } from 'react-router-dom';
+import { style, media } from 'typestyle';
 import Product from './product';
 
 
@@ -28,9 +26,14 @@ const defaultStyle = style({
             border: "2px dotted black",
             width: "100%"
           }
-    }
-    
-});
+    }   
+}, media({maxWidth: 768},{
+    display: ["grid", "-ms-grid"],
+    gridTemplateColumns: "repeat(auto-fill, minmax(80px, 1fr))",
+    gridGap: "10px",
+    gridTemplateRows: "auto",
+    })
+);
 class Projects extends Component {
     constructor(){
         super();
@@ -79,7 +82,7 @@ class Projects extends Component {
             )
         } else {
             let projectsToRender = this.state.posts.map((post, i)=>{
-                return <Product key={i} delay={i} source={post.featured_image} alternateText={post.title} />
+                return <Product key={i} delay={i} allProps={post} source={post.featured_image} alternateText={post.title} />
             });
             return(
                 <div className="pageSection">

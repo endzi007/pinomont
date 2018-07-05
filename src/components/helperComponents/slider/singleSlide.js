@@ -74,6 +74,7 @@ export default ({ img, link, inProp})=>{
     media({maxWidth:768 },{
         fontSize: "1.5em"
     }));
+
     return(
         <Transition in={inProp} timeout={timeout}>
         {(state)=>{
@@ -86,7 +87,10 @@ export default ({ img, link, inProp})=>{
                             <h1 className={mainHeading}> 
                                 Najbolja auto kozmetika u Crnoj Gori. Uvoznik i distributer za Areon proizvode...
                             </h1>
-                            <h2 style={{marginBottom: "50px", fontFamily: fontFam, fontWeight: "100",}}><a href={link}>Pogledaj još..</a></h2>
+                            <h2 
+                            style={{marginBottom: "50px", fontFamily: fontFam, fontWeight: "100",}}
+                            onClick={()=>{window.scrollTo(0,document.body.scrollHeight)}}
+                            >Pogledaj još..</h2>
                         </div>
                     </div>
                 </div>

@@ -28,9 +28,9 @@ const defaultStyle = style({
     
 }, media({maxWidth: 768},{
     display: ["grid", "-ms-grid"],
-    gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))",
     gridGap: "10px",
-    gridTemplateRows: "auto"
+    gridTemplateRows: "auto",
     })
 );
 
@@ -42,8 +42,7 @@ class Categories extends Component {
 
     render(){
         var projectsToRender = this.props.data.categories.map((project, i)=>{
-                return <Category key={"project"+i} className={`${defaultStyle} projectItem`} {...project} />
-
+                return <Category key={"project"+i} {...project} />
         });
         return(
             <div id="projectsSection"  className="pageSection">

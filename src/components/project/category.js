@@ -1,14 +1,9 @@
 import React, { Component } from "react";
-import HoverProject from './hoverProject';
-import LargeProject from './largeProject';
-import { style, keyframes } from 'typestyle';
-import LinkTimeout from '../helperComponents/linkTimeout';
+import { style, keyframes, media } from 'typestyle';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
-import styles from '../helperComponents/templateStyles';
-
 
 const animationIn = keyframes({
     "0%": {
@@ -47,10 +42,15 @@ class Category extends Component  {
         return (
             style({
                 height: "250px",
+                paddingTop: "100%",
                 overflow: "hidden",
                 position: "relative",
-
-             }))
+             }, media({maxWidth: 768},{
+                height: "100px",
+                maxHeight: "100px",
+                })
+            )
+            );
     }
 
     showDiv(){
@@ -58,6 +58,7 @@ class Category extends Component  {
         return style({
             opacity: opacity,
             position: "absolute",
+            top: 0, 
             height: "100%",
             width: "100%",
             "-webkit-animation": `${this.state.showDiv === false ? animationIn: animationOut} 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
@@ -70,6 +71,7 @@ class Category extends Component  {
         let opacity = this.state.showDiv === false? 0 : 1;
         return style({
             opacity: opacity,
+            top: 0,
             position: "absolute",
             height: "100%",
             width: "100%",

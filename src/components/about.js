@@ -3,10 +3,8 @@ import { style, media} from 'typestyle';
 import pinomontLogo from '../assets/images/pinomont.svg';
 
 const wrapperStyle = style({
-    display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignContent: "flex-start",
+    display: [ "-ms-grid", "grid"],
+    gridTemplateColumns: "2fr 1fr",
     $nest:{
         "div":{
             textAlign: "left!important",
@@ -17,7 +15,8 @@ const wrapperStyle = style({
         }
     }
 },  media({maxWidth: 768},{
-        flexDirection: "column"
+        display: [ "-ms-grid", "grid"],
+        gridTemplateColumns: "1fr",
     })
 );
 

@@ -17,6 +17,7 @@ export default (props)=>{
         animation:`${animationIn} 500ms forwards`,
         animationDelay: `${props.delay*100}ms` 
     });
+    console.log(props.allProps);
     return(
         <img className={defaultStyle} src={props.source} alt={props.alternateText} /> 
     );
