@@ -23,11 +23,9 @@ export const categoriesReducer = (state = {
     let newState = {...state};
     switch (action.type) {
         case "FETCH_CATEGORIES_START": 
-            newState.fetching = true;
             break;
         case "FETCH_CATEGORIES_OK": 
             newState.categories = action.payload;
-            newState.fetching = false;
             break;
         case "FETCH_CATEGORIES_ERROR": 
             newState.error = action.payload;
@@ -37,7 +35,6 @@ export const categoriesReducer = (state = {
             break;
         case "FETCH_PRODUCTS_OK": 
             newState.categories[action.payload.index].posts = action.payload.posts;
-            newState.fetching = false;
             break;
         case "FETCH_PRODUCTS_ERROR": 
             newState.error = action.payload;
@@ -45,6 +42,14 @@ export const categoriesReducer = (state = {
         case "GET_LS_CATEGORIES":
             newState.categories = action.payload;
             break;
+        case "GET_LS_PRODUCT": {
+            newState.categories[action.payload.index].posts= action.payload.posts;
+            break;
+        }
+        case "FETCHING": {
+            newState.fetching = action.payload;
+            break;
+        }
         default: 
         break;
     }

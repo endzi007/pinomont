@@ -39,53 +39,40 @@ class Projects extends Component {
             title: ""
         }
     }
+    async tryNewAsync(){
+        this.props.fetching(true);
+        let lsCategories = await this.props.checkLSCategories();
+        if(lsCategories.type === "LS_CATEGORIES_OK"){
+            await this.props.getLSCategories(lsCategories.payload);
+        } else {
+            await this.props.fetchCategories();
+        }
+        let lsProduct = await this.props.checkLSProduct(this.props.match.params.title);
+        console.log("lsProduct", lsProduct);
+        if(lsProduct.type==="LS_PRODUCT_OK"){
+            await this.props.getLSProduct(lsProduct.payload);
+        } else {
+            await this.props.fetchProduct(this.props.match.params.title);
+        }
+        let content = this.props.data.categories.filter((cat)=>{
+            return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+        });
+        console.log("content", content);
+        this.setState({posts: content[0].posts}, ()=>{
+            this.props.startPageTransition(false);
+        });
+        this.props.fetching(false);
 
+    }
     componentDidMount(){
         const title = this.props.match.params.title.split("_").join(" ");
+        this.tryNewAsync();
         this.setState({
             title: title
         });
-        this.props.checkLSCategories().then((obj)=>{
-            if(obj.type !== "LS_CATEGORIES_OK"){
-                this.props.getLSCategories();
-                this.props.fetchProducts(this.props.match.params.title).then(()=>{
-                    console.log("categories", this.props.data.categories);
-                    let content = this.props.data.categories.filter((cat)=>{
-                        return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
-                    });
-                    this.setState({posts: content[0].posts}, ()=>{
-                        this.props.startPageTransition(false);
-                    });
-                })
-              } else {
-                this.props.fetchCategories().then(()=>{
-                    this.props.fetchProducts(this.props.match.params.title).then(()=>{
-                        let content = this.props.data.categories.filter((cat)=>{
-                            return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
-                        });
-                        this.setState({posts: content[0].posts}, ()=>{
-                            this.props.startPageTransition(false);
-                        });
-                    })
-                });
-              }
-        }).catch((e)=>{
-            if(e==="LS_CATEGORIES_BAD"){
-                this.props.fetchCategories().then(()=>{
-                    this.props.fetchProducts(this.props.match.params.title).then(()=>{
-                        let content = this.props.data.categories.filter((cat)=>{
-                            return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
-                        });
-                        this.setState({posts: content[0].posts}, ()=>{
-                            this.props.startPageTransition(false);
-                        });
-                    })
-                });
-            }
-        });
     } 
     render(){
-
+        console.log("render method", this.props.data.fetching);
         if(this.props.data.fetching){
             return (
                 <div className="ui indeterminate text loader">Priprema fajlova...</div>
