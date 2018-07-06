@@ -51,7 +51,7 @@ class Projects extends Component {
             await this.props.fetchCategories();
         }
         let lsProduct = await this.props.checkLSProduct(this.props.match.params.title);
-        console.log("lsProduct", lsProduct);
+
         if(lsProduct.type==="LS_PRODUCT_OK"){
             await this.props.getLSProduct(lsProduct.payload);
         } else {
@@ -60,7 +60,7 @@ class Projects extends Component {
         let content = this.props.data.categories.filter((cat)=>{
             return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
         });
-        console.log("content", content);
+
         this.setState({posts: content[0].posts}, ()=>{
             this.props.startPageTransition(false);
         });
@@ -82,7 +82,7 @@ class Projects extends Component {
             )
         } else {
             let projectsToRender = this.state.posts.map((post, i)=>{
-                return <Product key={i} delay={i} allProps={post} source={post.featured_image} alternateText={post.title} />
+                return <Product key={i} delay={i} slug={post.slug} source={post.featured_image} alternateText={post.title} />
             });
             return(
                 <div className="pageSection">
