@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
 import { style, media } from 'typestyle';
+import { Helmet } from 'react-helmet';
 
 const mapStateToProps = (store) =>{
     return{
@@ -44,14 +45,19 @@ class Categories extends Component {
         var projectsToRender = this.props.data.categories.map((project, i)=>{
                 return <Category key={"project"+i} {...project} />
         });
-        return(
+        return([
+            <Helmet>
+            <meta charSet="utf-8" />
+            <title>{`Pinomont - Kategorije proizvoda`}</title>
+            <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>,
             <div id="projectsSection"  className="pageSection">
                 <h1>Kategorije proizvoda:</h1>
                 <hr/>
                 <div className={defaultStyle}>
                     {projectsToRender}
                 </div>
-            </div>
+            </div>]
         );
     }
 }

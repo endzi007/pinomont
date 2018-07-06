@@ -1,5 +1,6 @@
 import React from 'react';
-import { style, keyframes } from 'typestyle';
+import { style, keyframes, media } from 'typestyle';
+import styles from '../helperComponents/templateStyles';
 
 
 
@@ -46,30 +47,49 @@ export default class extends React.Component {
             }
         });
         const defaultStyle = style({
+            opacity: 0,
+            fontSize: "0.8em", 
+            lineHeight: "1em",
             animation:`${animationIn} 500ms forwards`,
             animationDelay: `${this.props.delay*100}ms`,
             position: "relative", 
+            overflow: "hidden",
+            padding: "0",
             $nest: {
                 "img": {
+                    marginTop: 0,
                     width: "100%",
                     maxWidth: "100%",
                     height: "100%"
+                },
+                "&:hover":{
+                    cursor: "pointer"
                 }
             }
         });
         const detailsDiv = style({
             position: "absolute",
+            top: 0, 
             zIndex: 3, 
-            backgroundColor: "rgba(0,0,0,0.8)",
+            backgroundColor: "rgba(0,0,0,0.9)",
             width: "100%",
             height: "100%",
             transition: "opacity 0.2s ease-in-out",
             padding: "10px",
             display: ["-ms-grid", "grid"],
-            gridTemplateColumns: "1fr"
+            gridTemplateColumns: "1fr",
+            alignItems: "center",
+            justifyItems: "center",
+            textAlign: "center"
 
-        });
-        console.log("slug", this.state.slug[0]);
+        }, media({maxWidth: 768},{
+            fontSize: "0.5em",
+            lineHeight: "1em",
+            alignItems: "center",
+            justifyItems: "center",
+            textAlign: "center"
+        }));
+
         return(
             <div 
                 className={defaultStyle}
@@ -80,8 +100,10 @@ export default class extends React.Component {
                     opacity: this.state.show === true ? "1": "0"
                 }}>
                     <h4>Detalji:</h4>
-                    <span>Naziv proizvoda: {this.state.slug[0]}</span>
-                    <span>Kod proizvoda: {this.state.slug[1]}</span>
+                    <span>Naziv proizvoda:</span>
+                    <span style={{color: styles.secondaryColor}}>{this.state.slug[0]}</span>
+                    <span>Kod proizvoda:</span>
+                    <span style={{color: styles.secondaryColor}}>{this.state.slug[1]}</span>
                 </div>
                 <img  src={this.props.source} alt={this.props.alternateText} /> 
             </div>

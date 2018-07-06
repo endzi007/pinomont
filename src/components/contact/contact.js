@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { style, media } from 'typestyle';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { Helmet } from 'react-helmet';
 import appConfig from '../../appConfig';
 
 const emailSvg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -100,7 +101,11 @@ class Contact extends Component {
     render(){
 
         return(
-            
+            [<Helmet>
+                <meta charSet="utf-8" />
+                <title>{`Pinomont - Kontakt`}</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>,
             <div className={`pageSection ${wrapperStyle}` }>
                 <div className={contactInfo}>
                     <h2> Kontaktirajte nas </h2>
@@ -124,7 +129,7 @@ class Contact extends Component {
 
                 </Map>
                 </div>
-            </div>
+            </div>]
         );
     }
 }

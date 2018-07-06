@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/projectActions';
 import { style, media } from 'typestyle';
 import Product from './product';
+import { Helmet } from 'react-helmet';
 
 
 const mapStateToProps = (store) =>{
@@ -84,7 +85,12 @@ class Projects extends Component {
             let projectsToRender = this.state.posts.map((post, i)=>{
                 return <Product key={i} delay={i} slug={post.slug} source={post.featured_image} alternateText={post.title} />
             });
-            return(
+            return([
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>{`Pinomont - ${this.state.title}`}</title>
+                    <link rel="canonical" href="http://mysite.com/example" />
+                </Helmet>,
                 <div className="pageSection">
                 <h1>{this.state.title}</h1>
                 <hr/>
@@ -92,6 +98,7 @@ class Projects extends Component {
                     {projectsToRender}
                 </div>
                 </div>
+            ]
             );
         }
     }

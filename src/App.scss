@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 @import './assets/css/font-awesome.css';
 @import url('https://fonts.googleapis.com/css?family=Arapey');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif');
 
 .primary{
   color: "blue!important";
@@ -29,8 +30,8 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 100!important;
 }
 
-p, a{
-  font-family: "Lobster", sans-serif!important;
+p, a, span{
+  font-family: "Bree Serif", sans-serif!important;
   text-align: left;
   font-weight: 100!important;
   font-size: 1.2em;

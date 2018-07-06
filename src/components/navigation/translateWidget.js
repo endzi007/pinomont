@@ -14,7 +14,7 @@ export default class extends React.Component{
     constructor(){
         super();
         this.state = {
-            current: serbian,
+            current: montenegrian,
             all: {
                 Serbian: serbian,
                 Montenegrian: montenegrian, 
@@ -123,11 +123,9 @@ export default class extends React.Component{
                 this.setState({
                     current: this.state.all[curr]
                 });
-            }
+            } 
         } catch(e){
-            this.setState({
-                current: this.state.all[0]
-            });
+            console.log(e, "localstorage is bad");
         }
     }
     render(){
