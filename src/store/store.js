@@ -9,7 +9,7 @@ const defaultState = {
     filterTags: [],
     appConfig: {
         pageTransition: appConfig.pageTransition, //when true start page fade out animation 
-        transitionDuration: appConfig.transitionDuration, //miliseconds
+        transitionDuration: 1800, //miliseconds
         currentRoute: "",
         showDrawer: false
     },
