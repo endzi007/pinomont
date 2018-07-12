@@ -22,9 +22,21 @@ export default class extends React.Component {
     }
 
     componentDidMount(){
-        this.setState({
-            slug: this.props.slug.split("-")
-        });
+        let slugs = this.props.slug.split("-");
+        if(slugs.length > 2){
+            let slug2 = slugs[slugs.length-1];
+            let slug1 = slugs.splice(0, slugs.length-1).join(" ") ;
+            let arr = [];
+            arr.push(slug1);
+            arr.push(slug2);
+            this.setState({
+                slug: arr 
+            });   
+        } else {
+            this.setState({
+                slug: this.props.slug.split("-")
+            });
+        }
     }
 
     handleEnter(){
