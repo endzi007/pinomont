@@ -104,7 +104,6 @@ class Contact extends Component {
             [<Helmet>
                 <meta charSet="utf-8" />
                 <title>{`Pinomont - Kontakt`}</title>
-                <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>,
             <div className={`pageSection ${wrapperStyle}` }>
                 <div className={contactInfo}>

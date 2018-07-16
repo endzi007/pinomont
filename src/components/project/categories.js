@@ -49,7 +49,6 @@ class Categories extends Component {
             <Helmet>
             <meta charSet="utf-8" />
             <title>{`Pinomont - Kategorije proizvoda`}</title>
-            <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>,
             <div id="projectsSection"  className="pageSection">
                 <h1>Kategorije proizvoda:</h1>

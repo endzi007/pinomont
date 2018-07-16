@@ -89,7 +89,6 @@ class Projects extends Component {
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>{`Pinomont - ${this.state.title}`}</title>
-                    <link rel="canonical" href="http://mysite.com/example" />
                 </Helmet>,
                 <div className="pageSection">
                 <h1>{this.state.title}</h1>

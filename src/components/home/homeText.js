@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { style } from 'typestyle';
 import { Helmet } from 'react-helmet';
 import Slider from '../helperComponents/slider/sliderContainer';
-import SlideImage1 from '../../assets/images/slides/areonFresko.jpg';
+import SlideImage1 from '../../assets/images/slides/areonFresko.png';
 import SlideImage2 from '../../assets/images/slides/kategorije.png';
 
 export default ()=>{
@@ -24,9 +24,7 @@ export default ()=>{
     return(
         [
             <Helmet>
-                <meta charSet="utf-8" />
                 <title>{`Pinomont - Početna`}</title>
-                <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>,
             <div className={wrapperStyle}>
                 <Slider slides={slides}/>
