@@ -19,6 +19,13 @@ import FourOFour from './components/fourOFour';
 import HomeText from './components/home/homeText';
 import { bindActionCreators } from 'redux';
 
+import animated from './components/HOC/animated';
+
+const homeAnim = animated(HomeText);
+const categoriesAnim = animated(Categories); 
+const contactAnim = animated(Contact);
+const productAnim = animated(ProductContainer);
+
 class App extends React.Component {
 
   async fetchData (){
@@ -44,10 +51,10 @@ class App extends React.Component {
                 <Navigation />,
                 <TransitionOverlay show={this.props.appConfig.pageTransition} />,
                 <Switch location = {location}>
-                  <Route exact path="/" component={HomeText} />
-                  <Route exact path="/categories" component={Categories}/>
-                  <Route exact path="/contact" component={Contact}/>
-                  <Route path={"/categories/:title"} component={ProductContainer} />
+                  <Route exact path="/" component={homeAnim} />
+                  <Route exact path="/categories" component={categoriesAnim}/>
+                  <Route exact path="/contact" component={contactAnim}/>
+                  <Route path={"/categories/:title"} component={productAnim} />
                   <Route path={"/about"} component={About} />
                   <Route component={FourOFour} />
                 </Switch>,

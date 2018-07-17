@@ -62,9 +62,7 @@ class Projects extends Component {
             return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
         });
 
-        this.setState({posts: content[0].posts}, ()=>{
-            this.props.startPageTransition(false);
-        });
+        this.setState({posts: content[0].posts});
         this.props.fetching(false);
 
     }
