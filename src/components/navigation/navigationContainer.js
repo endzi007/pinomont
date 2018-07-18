@@ -39,18 +39,10 @@ class Navigation extends Component {
     }
 
     render(){
-        const { currentRoute } = this.props.appConfig;
-        let activeLink = " ";
-        if(currentRoute==="/"){
-            activeLink = "home";
-        } else if(currentRoute=== "/categories"){
-            activeLink = "categories"
-        } else if(currentRoute==="/contact") {
-            activeLink = "contact"
-        }
+
         return(
             [
-                <TopMenu key= "topMenu_key"activeLink = {activeLink} handleClick={this.handleClick.bind(this)} showDrawer={this.props.appConfig.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
+                <TopMenu key= "topMenu_key" handleClick={this.handleClick.bind(this)} showDrawer={this.props.appConfig.showDrawer} show={this.state.windowSize>767 ? "top": "right"} />,
                 <ToggleDrawer key ="toggleDrawer_key" show={this.props.appConfig.showDrawer} handleClick={this.toggleShowDrawer.bind(this)}/>
             ]
 

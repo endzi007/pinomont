@@ -4,7 +4,7 @@ import PinomontLogo from '../../assets/images/pinomontLogo.png';
 import styles from '../helperComponents/templateStyles';
 import TranslateWidget from './translateWidget';
 import { NavLink } from 'react-router-dom';
-export default ({show, handleClick, showDrawer, activeLink}) =>{
+export default ({show, handleClick, showDrawer}) =>{
     const topStyle = style({
         position: "fixed",
         display: ["-webkit-box", "-moz-box", "-ms-flexbox", "-webkit-flex", "flex"],
