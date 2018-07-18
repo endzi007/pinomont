@@ -25,6 +25,7 @@ const homeAnim = animated(HomeText);
 const categoriesAnim = animated(Categories); 
 const contactAnim = animated(Contact);
 const productAnim = animated(ProductContainer);
+const aboutAnim = animated(About);
 
 class App extends React.Component {
 
@@ -55,7 +56,7 @@ class App extends React.Component {
                   <Route exact path="/categories" component={categoriesAnim}/>
                   <Route exact path="/contact" component={contactAnim}/>
                   <Route path={"/categories/:title"} component={productAnim} />
-                  <Route path={"/about"} component={About} />
+                  <Route path={"/about"} component={aboutAnim} />
                   <Route component={FourOFour} />
                 </Switch>,
                 <Footer />
