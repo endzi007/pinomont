@@ -94,14 +94,15 @@ class Category extends Component  {
                 })
             }}
             onClick={()=>{
-                let path = `${this.props.match.url}/${this.props.title.split(" ").join("_")}`;
-                if (this.props.history.location.pathname === path){
-                    return;
-                }
+
+                let path = `categories`;
+                console.log(path);
                 this.props.startPageTransition(true);
-                setTimeout(()=>{
-                    this.props.history.push(path)
-                }, this.props.appConfig.transitionDuration);
+                this.props.history.push({
+                    pathname: path,
+                    params: this.props.title.split(" ").join("_")
+                });
+
             }}
             >
                 <img src={this.props.hover} className={this.showDiv()}></img>

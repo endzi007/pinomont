@@ -8,24 +8,14 @@ import * as actions from './actions/projectActions';
 import Navigation from './components/navigation/navigationContainer';
 import TransitionOverlay from './components/helperComponents/transitionOverlay';
 import Footer from './components/footer';
-import ProductContainer from './components/products/productContainer';
+import RouteLocation from './components/helperComponents/routeHelper';
 
 
-/*-----pages------*/
-import About from './components/about';
-import Contact from './components/contact/contact';
-import Categories from './components/project/categories';
-import FourOFour from './components/fourOFour';
-import HomeText from './components/home/homeText';
 import { bindActionCreators } from 'redux';
 
-import animated from './components/HOC/animated';
 
-const homeAnim = animated(HomeText);
-const categoriesAnim = animated(Categories); 
-const contactAnim = animated(Contact);
-const productAnim = animated(ProductContainer);
-const aboutAnim = animated(About);
+
+
 
 class App extends React.Component {
 
@@ -51,14 +41,7 @@ class App extends React.Component {
              [
                 <Navigation />,
                 <TransitionOverlay show={this.props.appConfig.pageTransition} />,
-                <Switch location = {location}>
-                  <Route exact path="/" component={homeAnim} />
-                  <Route exact path="/categories" component={categoriesAnim}/>
-                  <Route exact path="/contact" component={contactAnim}/>
-                  <Route path={"/categories/:title"} component={productAnim} />
-                  <Route path={"/about"} component={aboutAnim} />
-                  <Route component={FourOFour} />
-                </Switch>,
+                <Route path="/" component={RouteLocation}/>,
                 <Footer />
               ]
             );

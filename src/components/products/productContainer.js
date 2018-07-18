@@ -51,15 +51,15 @@ class Projects extends Component {
         } else {
             await this.props.fetchCategories();
         }
-        let lsProduct = await this.props.checkLSProduct(this.props.match.params.title);
+        let lsProduct = await this.props.checkLSProduct(this.props.title);
 
         if(lsProduct.type==="LS_PRODUCT_OK"){
             await this.props.getLSProduct(lsProduct.payload);
         } else {
-            await this.props.fetchProduct(this.props.match.params.title);
+            await this.props.fetchProduct(this.props.title);
         }
         let content = this.props.data.categories.filter((cat)=>{
-            return cat.title === this.props.match.params.title.split("_").join(" ") ? cat : "" 
+            return cat.title === this.props.title.split("_").join(" ") ? cat : "" 
         });
 
         this.setState({posts: content[0].posts});
@@ -67,7 +67,7 @@ class Projects extends Component {
 
     }
     componentDidMount(){
-        const title = this.props.match.params.title.split("_").join(" ");
+        const title = this.props.title.split("_").join(" ");
         this.tryNewAsync();
         this.setState({
             title: title
