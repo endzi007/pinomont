@@ -3,7 +3,7 @@ import { style, keyframes, media} from 'typestyle';
 import PinomontLogo from '../../assets/images/pinomontLogo.png';
 import styles from '../helperComponents/templateStyles';
 import TranslateWidget from './translateWidget';
-import translateWidget from './translateWidget';
+import { NavLink } from 'react-router-dom';
 export default ({show, handleClick, showDrawer, activeLink}) =>{
     const topStyle = style({
         position: "fixed",
@@ -90,38 +90,15 @@ export default ({show, handleClick, showDrawer, activeLink}) =>{
                 }} src={PinomontLogo} alt="pinomont logo"/></div>
             </div>
             <div className={navigationItemsStyle}>
-                <div key="topMany_link_početna" className={`${itemStyle} ${activeLink==="home"? active: ""}`} onClick={handleClick.bind(null, "/")}>Početna </div>
-                <div key="topMany_link_categories"className={`${itemStyle} ${activeLink==="categories"? active: ""}`} onClick={handleClick.bind(null, "/categories")}>Proizvodi</div>
-                <div key="topMany_link_about" className={`${itemStyle} ${activeLink===" "? active: ""}`} onClick={handleClick.bind(null, "/about")}>O nama</div>
-                <div key="topMany_link_contact"className={`${itemStyle} ${activeLink==="contact"? active: ""}`} onClick={handleClick.bind(null, "/contact")}>Kontakt</div>
+                <div className={`${itemStyle}`}><NavLink onClick={handleClick.bind(null, "/")} exact activeStyle={{color: styles.secondaryColor}} to="/">Početna</NavLink> </div>
+                <div className={`${itemStyle}`}><NavLink onClick={handleClick.bind(null, "/categories")} activeStyle={{color: styles.secondaryColor}} to="/categories">Proizvodi</NavLink> </div>
+                <div className={`${itemStyle}`}><NavLink onClick={handleClick.bind(null, "/about")} exact activeStyle={{color: styles.secondaryColor}} to="/about">O nama</NavLink> </div>
+                <div className={`${itemStyle}`}><NavLink onClick={handleClick.bind(null, "/contact")} activeStyle={{color: styles.secondaryColor}} exact to="/contact">Kontakt</NavLink> </div>
             </div>
             <TranslateWidget />
         </div>
     );
 }
-
-
-
-/*
-        <nav className={show==="top"? topStyle : rightStyle(showDrawer===true? 0: -250)}>
-                <div>
-                    <div className={itemStyle} style={{fontSize: "2em"}} onClick={handleClick.bind(null, "/")}><img style={{
-                        width: "200px", height: "auto"
-                    }} src={PinomontLogo} alt="pinomont logo"/></div>
-                </div>
-                <div className={rightNav}>
-                    <div className={itemStyle} onClick={handleClick.bind(null, "/")}> <SvgImage show={show} name="home"/> Početna </div>
-                    <div className={itemStyle} onClick={handleClick.bind(null, "/categories")}><SvgImage show={show} name="projects"/> Kategorije </div>
-                    <div className={itemStyle} onClick={handleClick.bind(null, "/Contact")}><SvgImage show={show} name="contact"/> Kontakt </div>
-                    <div className={itemStyle} id="google_translate_element"></div>
-                    <div className={itemStyle} onClick={()=>{
-                        manualTranslate();
-                    }}>Srpski</div>
-                </div>
-        </nav>
-
-
-*/
 
 
 

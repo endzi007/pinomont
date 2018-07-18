@@ -20,14 +20,11 @@ class Navigation extends Component {
     }
 
     handleClick(path){
-        if (this.props.history.location.pathname === path){
-            return;
-        }
         this.props.startPageTransition(true);
         this.props.toggleShowDrawer(false);
-        this.props.changeCurrentRoute(path);
+        //this.props.changeCurrentRoute(path);
         window.scrollTo(0,0);
-        this.props.history.push(path)
+        //this.props.history.push(path)
 
     }
     updateSize(){
