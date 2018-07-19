@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import { connect } from 'react-redux';
@@ -25,6 +25,8 @@ const homeAnim = animated(HomeText);
 const categoriesAnim = animated(Categories); 
 const contactAnim = animated(Contact);
 const productAnim = animated(ProductContainer);
+const aboutAnim = animated(About);
+const fourOFourAnim = animated(FourOFour);
 
 class App extends React.Component {
 
@@ -55,8 +57,8 @@ class App extends React.Component {
                   <Route exact path="/categories" component={categoriesAnim}/>
                   <Route exact path="/contact" component={contactAnim}/>
                   <Route path={"/categories/:title"} component={productAnim} />
-                  <Route path={"/about"} component={About} />
-                  <Route component={FourOFour} />
+                  <Route path={"/about"} component={aboutAnim} />
+                  <Route component={fourOFourAnim} />
                 </Switch>,
                 <Footer />
               ]

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import * as actions from '../actions/projectActions';
 import { bindActionCreators } from 'redux';
 import { style } from 'typestyle';
@@ -33,11 +33,6 @@ class Footer extends Component {
         this.props.toggleShowDrawer(false);
         this.props.startPageTransition(true);
         this.props.changeCurrentRoute(path);
-        setTimeout(()=>{
-            window.scrollTo(0,0);
-            this.props.startPageTransition(false);
-            this.props.history.push(path)
-        }, this.props.appConfig.transitionDuration);
     }
     render(){
         let d = new Date();
@@ -55,10 +50,10 @@ class Footer extends Component {
                     <div className="five wide column">
                     <h4 className="ui inverted header">Stranice</h4>
                     <div className="ui inverted link list">
-                        <div onClick={this.handleClick.bind(this, "/")} className="item">Početna</div>
-                        <div onClick={this.handleClick.bind(this, "/categories")} className="item">Kategorije</div>
-                        <div onClick={this.handleClick.bind(this, "/about")} className="item">O nama</div>
-                        <div onClick={this.handleClick.bind(this, "/contact")} className="item">Kontakt</div>
+                        <Link to="/" onClick={this.handleClick.bind(this, "/")} className="item">Početna</Link>
+                        <Link to="/categories" onClick={this.handleClick.bind(this, "/categories")} className="item">Kategorije</Link>
+                        <Link to="/about" onClick={this.handleClick.bind(this, "/about")} className="item">O nama</Link>
+                        <Link to="/contact" onClick={this.handleClick.bind(this, "/contact")} className="item">Kontakt</Link>
                     </div>
                     </div>
                     <div className="five wide column">
