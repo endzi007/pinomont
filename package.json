@@ -2,7 +2,7 @@
   "name": "pinomont-berane",
   "version": "0.2.0",
   "private": true,
-  "homepage": "http://areon.me/",
+  "homepage": "https://areon.me/",
   "dependencies": {
     "animate.css": "^3.6.1",
     "font-awesome": "^4.7.0",
